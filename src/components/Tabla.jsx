@@ -1,10 +1,10 @@
 
-import { updateDoc, doc } from 'firebase/firestore';
-import React from 'react'
-import { db } from './../database/firebase-config';
-import Swal from 'sweetalert2';
 
-export const Tabla = ({datos}=[]) => {
+import React from 'react'
+
+
+
+export const Tabla = ({datos=[], fecha}) => {
 
 
     
@@ -12,7 +12,7 @@ export const Tabla = ({datos}=[]) => {
     return (
         <>
             
-
+            <h2>Registros fecha: {fecha}</h2>
             <table className="table">
                     <thead>
                         <tr>
@@ -20,7 +20,7 @@ export const Tabla = ({datos}=[]) => {
                             <th scope="col">Tipo</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Fecha</th>
-                            {/* <th scope="col">Hora</th> */}
+                            <th scope="col">Hora</th>
                             
                         
                         </tr>
@@ -32,13 +32,13 @@ export const Tabla = ({datos}=[]) => {
                     </tr>
 
                     {
-                        datos.map(({tipo, cantidad, fecha, id}, i)=> (
+                        datos.map(({tipo, cantidad, fecha, hora, id}, i)=> (
                             <tr key={i}>
                                 <th>{i+1}</th>
                                 <td>{tipo}</td>
                                 <td>{cantidad}</td>
                                 <td>{fecha}</td>
-                                {/* <td>{hora}</td> */}
+                                <td>{hora}</td>
                                 
                             </tr>
                         ))

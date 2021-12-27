@@ -32,7 +32,8 @@ export const Ingresar = () => {
         
             const nuevoRegistro = {
               cantidad,
-              fecha:`${fecha} ${hora}`,      
+              fecha,
+              hora,      
               tipo               
           };
         
