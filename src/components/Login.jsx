@@ -14,10 +14,10 @@ export const Login = () => {
     const signInWithGoogle = ()=>{
     signInWithPopup(auth,provider)
     .then( ({user}) => {
-
-        localStorage.setItem('name', user.name);
+        
+        localStorage.setItem('displayName', user.displayName);
         localStorage.setItem('email', user.email);
-        localStorage.setItem('profilePic', user.profilePic);
+        localStorage.setItem('photoURL', user.photoURL);
         
         navigate('../', { replace: true });
         
