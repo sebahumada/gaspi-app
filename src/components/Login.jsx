@@ -13,11 +13,11 @@ export const Login = () => {
 
     const signInWithGoogle = ()=>{
     signInWithPopup(auth,provider)
-    .then( ({name, email, profilePic}) => {
+    .then( (user) => {
 
-        localStorage.setItem('name', name);
-        localStorage.setItem('email', email);
-        localStorage.setItem('profilePic', profilePic);
+        localStorage.setItem('name', user.name);
+        localStorage.setItem('email', user.email);
+        localStorage.setItem('profilePic', user.profilePic);
         
         navigate('../', { replace: true });
         
