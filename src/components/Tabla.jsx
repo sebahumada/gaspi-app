@@ -1,11 +1,13 @@
 
 
+import dayjs from 'dayjs'
 import React from 'react'
 
 
 
 export const Tabla = ({datos=[], fecha}) => {
 
+    fecha = dayjs(fecha).format('DD-MM-YYYY');
 
     
     

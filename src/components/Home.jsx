@@ -34,6 +34,7 @@ export const Home = () => {
         }, []);
 
         const {fecha, hora, cantidad, tipo} = leche;
+        //const fechaFormat = dayjs(fecha).format('DD-MM-YYYY');
         
         const navigate = useNavigate();
 
@@ -45,8 +46,9 @@ export const Home = () => {
             navigate('../listado', { replace: true });
         }
 
-
         const fechaProxima = dayjs(`${fecha} ${hora}`).add(150,'minutes').format('DD-MM-YYYY HH:mm');
+        const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
+
         
         
         
@@ -62,8 +64,9 @@ export const Home = () => {
                 (leche.fecha)? 
                 (
                     <>
-                            <div className="card text-white bg-danger mt-4">
-                            <div className="card-header">Próxima Leche</div>
+                        <div className='card-group'>
+                            <div className="card text-white bg-danger mt-4 ">
+                            <div className="card-header fw-bold">Próxima Leche</div>
                             <div className="card-body">
                                 
                                
@@ -73,17 +76,17 @@ export const Home = () => {
                             </div>
 
                             <div className="card text-white bg-primary mt-4">
-                            <div className="card-header">Última Leche</div>
+                            <div className="card-header fw-bold">Última Leche</div>
                             <div className="card-body">
                                 
-                                <p className="card-text">Fecha: {fecha}</p>
+                                <p className="card-text">Fecha: {fechaFormat}</p>
                                 <p className="card-text">Hora: {hora}</p>
-                                <p className="card-text">Cantidad: {cantidad}</p>
+                                <p className="card-text">Cantidad: {cantidad} ml</p>
                                 <p className="card-text">Tipo: {tipo}</p>
                                 
                             </div>
                             </div>
-
+                        </div>
 
                         
 
