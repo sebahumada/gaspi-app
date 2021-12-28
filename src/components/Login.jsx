@@ -13,7 +13,7 @@ export const Login = () => {
 
     const signInWithGoogle = ()=>{
     signInWithPopup(auth,provider)
-    .then( (user) => {
+    .then( ({user}) => {
 
         localStorage.setItem('name', user.name);
         localStorage.setItem('email', user.email);
