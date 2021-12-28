@@ -4,11 +4,32 @@ import dayjs from 'dayjs';
 import { collection, addDoc } from 'firebase/firestore';
 
 import { useForm } from './../hooks/useForm';
-import { db } from './../database/firebase-config';
+import { auth, db } from './../database/firebase-config';
 import { useNavigate } from 'react-router-dom';
 import  Swal from 'sweetalert2';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export const Ingresar = () => {
+
+
+
+  onAuthStateChanged(auth, user => {
+
+    if(!user){
+        navigate('../login', { replace: true });
+    }
+
+});
+
+const handleSalir = async ()=>{
+  await auth.signOut();
+
+  console.log('saliendo...');
+  localStorage.clear();
+  onAuthStateChanged(auth, user => console.log('usuario? ',user));
+
+
+}
 
     const lecheCollectionRef = collection(db,'gaspiLeche');
 
@@ -75,6 +96,9 @@ export const Ingresar = () => {
     return (
         <div>
             <button className='btn btn-danger mb-4' onClick={handleVolver}>Volver</button>
+
+            <button className='btn btn-danger me-3' onClick={handleSalir}>Salir</button>
+
           <form onSubmit={handleIngresar} className="form-control">
             <p className="form-label">Ingresa Tipo</p>
                 <select name="tipo" value={tipo} onChange={handleInputChange} className="form-select">

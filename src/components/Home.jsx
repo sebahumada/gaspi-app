@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { collection, getDocs, limit, query } from 'firebase/firestore';
-import { db } from './../database/firebase-config';
+import { auth, db } from './../database/firebase-config';
 import { orderBy  } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export const Home = () => {
 
@@ -12,6 +13,15 @@ export const Home = () => {
 
         const lecheCollectionRef = collection(db,'gaspiLeche');        
         const q = query(lecheCollectionRef, limit(10));
+
+
+        onAuthStateChanged(auth, user => {
+
+            if(!user){
+                navigate('../login', { replace: true });
+            }
+
+        });
 
         useEffect(() => {
 
@@ -49,7 +59,15 @@ export const Home = () => {
         const fechaProxima = dayjs(`${fecha} ${hora}`).add(150,'minutes').format('DD-MM-YYYY HH:mm');
         const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
 
-        
+        const handleSalir = async ()=>{
+            await auth.signOut();
+
+            console.log('saliendo...');
+            localStorage.clear();
+            onAuthStateChanged(auth, user => console.log('usuario? ',user));
+
+
+        }
         
         
 
@@ -57,8 +75,11 @@ export const Home = () => {
     return (
         <div>
 
+
             <button className='btn btn-success me-3' onClick={handleIngresar}>Ingresar Registro</button>
-            <button className='btn btn-primary' onClick={handleListado}>Listado</button>
+            
+            <button className='btn btn-primary me-3' onClick={handleListado}>Listado</button>
+            <button className='btn btn-danger me-3' onClick={handleSalir}>Salir</button>
             
             { 
                 (leche.fecha)? 
