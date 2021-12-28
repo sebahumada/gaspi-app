@@ -82,7 +82,7 @@ export const Listado = () => {
         <div>
             <button className='btn btn-danger mb-4' onClick={handleVolver}>Volver</button>
 
-            <button className='btn btn-danger me-3' onClick={handleSalir}>Salir</button>
+            <button className='btn btn-danger mb-4 me-3' onClick={handleSalir}>Salir</button>
             
             <h4>Fecha</h4>
             <input type="date" name="fechaQ" value={fechaQ} className="form-control mb-4" onChange={handleInputChange}></input>
