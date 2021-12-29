@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { collection, getDocs, limit, query } from 'firebase/firestore';
+import { collection, getDocs, limit, query, orderBy as ordby } from 'firebase/firestore';
 import { auth, db } from './../database/firebase-config';
 import { orderBy  } from 'lodash';
 import { useNavigate } from 'react-router-dom';
@@ -8,11 +8,10 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 export const Home = () => {
 
-    const [leche, setLeche] = useState({});
-
-
-        const lecheCollectionRef = collection(db,'gaspiLeche');        
-        const q = query(lecheCollectionRef, limit(10));
+        const [leche, setLeche] = useState({});        
+        
+        //const q1 = query(lecheCollectionRef,   ordby('fecha','desc') ,limit(10));
+        //const q = query(q1,   ordby('hora','desc') ,limit(1));
 
 
         onAuthStateChanged(auth, user => {
@@ -23,20 +22,26 @@ export const Home = () => {
 
         });
 
+        
+
         useEffect(() => {
 
 
                 const getLeche = async()=>{
-                console.log('useEffect - getLeche()');
-                const data = await getDocs(q);
+                    const lecheCollectionRef = collection(db,'gaspiLeche');        
+                    const q = query(lecheCollectionRef,  ordby('fecha','desc'), ordby('hora','desc') ,limit(1));
+                    console.log('useEffect - getLeche()');
+                    const data = await getDocs(q);
 
-                const resultado = data.docs.map( (doc) => ({ id: doc.id, ...doc.data() }));
+                    const resultado = data.docs.map( (doc) => ({ id: doc.id, ...doc.data() }));
 
-                if(resultado && resultado.length>0){
-                    
-                    const orden = orderBy(resultado,['fecha','hora'],['desc','desc']);                    
-                    setLeche(orden[0]);
-                }
+                    if(resultado && resultado.length>0){
+                        console.log(resultado);
+                        const orden = orderBy(resultado,['fecha','hora'],['desc','desc']);      
+                        console.log(orden);              
+                        setLeche(orden[0]);
+                    }
+                
             };
 
             getLeche();
