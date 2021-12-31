@@ -1,6 +1,7 @@
 
 
 import dayjs from 'dayjs'
+import { sumBy } from 'lodash';
 import React from 'react'
 
 
@@ -8,20 +9,22 @@ import React from 'react'
 export const Tabla = ({datos=[], fecha}) => {
 
     fecha = dayjs(fecha).format('DD-MM-YYYY');
-
+    
+    const cantidad = sumBy(datos,'cantidad');
     
     
     return (
         <>
             
-            <h2>Registros fecha: {fecha}</h2>
-            <table className="table">
+            <h2>Registros fecha <span className="badge bg-primary">{fecha}</span></h2>
+            <h3>Total <span className="badge bg-success">{cantidad} ml</span></h3>
+            <table className="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Cantidad</th>
-                            <th scope="col">Fecha</th>
+                            {/* <th scope="col">Fecha</th> */}
                             <th scope="col">Hora</th>
                             
                         
@@ -34,12 +37,13 @@ export const Tabla = ({datos=[], fecha}) => {
                     </tr>
 
                     {
-                        datos.map(({tipo, cantidad, fecha, hora, id}, i)=> (
-                            <tr key={i}>
+                        // datos.map(({tipo, cantidad, fecha,hora, id}, i)=> (
+                        datos.map(({tipo, cantidad, fecha,hora, id}, i)=> (
+                            <tr key={id}>
                                 <th>{i+1}</th>
                                 <td>{tipo}</td>
-                                <td>{cantidad}</td>
-                                <td>{fecha}</td>
+                                <td>{cantidad} ml</td>
+                                {/* <td>{ dayjs(fecha).format('DD-MM-YYYY') }</td> */}
                                 <td>{hora}</td>
                                 
                             </tr>
@@ -48,7 +52,6 @@ export const Tabla = ({datos=[], fecha}) => {
                         
                         
                     }
-                         
                         
                     </tbody>
                 </table>

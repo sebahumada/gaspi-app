@@ -85,7 +85,7 @@ export const Home = () => {
             
             <button className='btn btn-primary me-3' onClick={handleListado}>Listado</button>
             <button className='btn btn-danger me-3' onClick={handleSalir}>Salir</button>
-            
+            <br />
             { 
                 (leche.fecha)? 
                 (
@@ -121,7 +121,10 @@ export const Home = () => {
                     
                 ):
                 (
-                    <div><h2 className='text-danger'>No hay registros</h2></div>
+                    // <div><h2 className='text-danger'>No hay registros</h2></div>
+                    <div className="spinner-border mt-4" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
                 )
         
             }

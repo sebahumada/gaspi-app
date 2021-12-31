@@ -95,7 +95,9 @@ export const Listado = () => {
                         <Tabla datos={leche} fecha={fechaQ}/>
                     ):
                     (
-                        <h2 className='text-danger'>No hay registros</h2>
+                        <div className="spinner-border mt-4" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
                     )
 
             }

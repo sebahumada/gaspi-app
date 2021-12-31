@@ -52,7 +52,7 @@ const handleSalir = async ()=>{
             e.preventDefault();
         
             const nuevoRegistro = {
-              cantidad,
+              cantidad: Number(cantidad),
               fecha,
               hora,      
               tipo               
@@ -61,7 +61,7 @@ const handleSalir = async ()=>{
             await addDoc(lecheCollectionRef, nuevoRegistro );
 
             Swal.fire({
-                title: 'Documento Ingresado',
+                title: 'Registro ingresado correctamente!',
                 showDenyButton: false,
                 showCancelButton: false,
                 confirmButtonText: 'OK',
@@ -100,17 +100,31 @@ const handleSalir = async ()=>{
             <button className='btn btn-danger mb-4 me-3' onClick={handleSalir}>Salir</button>
 
           <form onSubmit={handleIngresar} className="form-control">
-            <p className="form-label">Ingresa Tipo</p>
-                <select name="tipo" value={tipo} onChange={handleInputChange} className="form-select">
-                    <option value="Relleno">Relleno</option>
-                    <option value="Materna">Materna</option>
-                </select>
-            <p className="form-label">Ingresa Cantidad (ml)</p>
-            <input type="number" name="cantidad" value={cantidad} min={0} max={999} className="form-control" onChange={handleInputChange}></input>
-            <p className="form-label">Ingresa Fecha</p>
-            <input type="date" name="fecha" value={fecha} className="form-control" onChange={handleInputChange}></input>
-            <p className="form-label">Ingresa Hora</p>
-            <input type="time" name="hora" value={hora} className="form-control" onChange={handleInputChange}></input>
+
+          <div className="form-floating mb-3">
+              <select name="tipo" value={tipo} id="flTipo" onChange={handleInputChange} className="form-select">
+                  <option value="Relleno">Relleno</option>
+                  <option value="Materna">Materna</option>
+              </select>
+              <label for="flTipo">Ingresa Tipo</label>
+          </div>
+            
+          <div className="form-floating mb-3">
+            <input type="number" name="cantidad" id="flCantidad" value={cantidad} min={0} max={999} className="form-control" onChange={handleInputChange}></input>
+            <label for="flCantidad">Ingresa Cantidad (ml)</label>            
+          </div>
+
+          <div className="form-floating mb-3">
+            <input type="date" name="fecha" id="flFecha" value={fecha} className="form-control" onChange={handleInputChange}></input>
+            <label for="flFecha">Ingresa Fecha</label>
+          </div>
+
+          <div className="form-floating mb-3">
+            <input type="time" name="hora" id="flHora" value={hora} className="form-control" onChange={handleInputChange}></input>
+            <label for="flHora">Ingresa Hora</label>
+          </div>
+
+
             <button type="submit" className="btn btn-primary mt-2">Ingresar</button>
         </form>
 
