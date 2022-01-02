@@ -44,6 +44,7 @@ export const Listado = () => {
 
           const {fechaQ} = formValues;
         
+          const hoy = dayjs().format('YYYY-MM-DD');
 
         useEffect(() => {
 
@@ -99,7 +100,7 @@ export const Listado = () => {
 
 
             <h4>Fecha</h4>
-            <input type="date" name="fechaQ" value={fechaQ} className="form-control mb-4" onChange={handleInputChange}></input>
+            <input type="date" name="fechaQ" value={fechaQ} max={hoy} className="form-control mb-4" onChange={handleInputChange}></input>
 
 
             {

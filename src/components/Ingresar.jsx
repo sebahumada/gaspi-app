@@ -43,6 +43,8 @@ const handleSalir = async ()=>{
 
       const {fecha, cantidad, hora, tipo} = formValues;
 
+      const hoy=dayjs().format('YYYY-MM-DD');
+      const semana=dayjs().add(-7,'day').format('YYYY-MM-DD')
 
       const handleIngresar = async(e)=>{
 
@@ -106,22 +108,22 @@ const handleSalir = async ()=>{
                   <option value="Relleno">Relleno</option>
                   <option value="Materna">Materna</option>
               </select>
-              <label for="flTipo">Ingresa Tipo</label>
+              <label htmlFor="flTipo">Ingresa Tipo</label>
           </div>
             
           <div className="form-floating mb-3">
             <input type="number" name="cantidad" id="flCantidad" value={cantidad} min={0} max={999} className="form-control" onChange={handleInputChange}></input>
-            <label for="flCantidad">Ingresa Cantidad (ml)</label>            
+            <label htmlFor="flCantidad">Ingresa Cantidad (ml)</label>            
           </div>
 
           <div className="form-floating mb-3">
-            <input type="date" name="fecha" id="flFecha" value={fecha} className="form-control" onChange={handleInputChange}></input>
-            <label for="flFecha">Ingresa Fecha</label>
+            <input type="date" name="fecha" id="flFecha" value={fecha} min={semana} max={hoy} className="form-control" onChange={handleInputChange}></input>
+            <label htmlFor="flFecha">Ingresa Fecha</label>
           </div>
 
           <div className="form-floating mb-3">
             <input type="time" name="hora" id="flHora" value={hora} className="form-control" onChange={handleInputChange}></input>
-            <label for="flHora">Ingresa Hora</label>
+            <label htmlFor="flHora">Ingresa Hora</label>
           </div>
 
 
