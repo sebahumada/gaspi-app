@@ -30,16 +30,18 @@ export const Home = () => {
                 const getLeche = async()=>{
                     const lecheCollectionRef = collection(db,'gaspiLeche');        
                     const q = query(lecheCollectionRef,  ordby('fecha','desc'), ordby('hora','desc') ,limit(1));
-                    console.log('useEffect - getLeche()');
+                    
                     const data = await getDocs(q);
 
                     const resultado = data.docs.map( (doc) => ({ id: doc.id, ...doc.data() }));
 
                     if(resultado && resultado.length>0){
-                        console.log(resultado);
+                        
                         const orden = orderBy(resultado,['fecha','hora'],['desc','desc']);      
-                        console.log(orden);              
+                               
                         setLeche(orden[0]);
+                    } else {
+                        setLeche({})
                     }
                 
             };

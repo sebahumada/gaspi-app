@@ -33,7 +33,7 @@ export const Listado = () => {
 
         const [leche, setLeche] = useState([]);
         
-
+        const [cargando, setCargando] = useState(false);
         
 
         const[formValues, handleInputChange] = useForm({
@@ -48,23 +48,30 @@ export const Listado = () => {
         useEffect(() => {
 
 
-                const lecheCollectionRef = collection(db,'gaspiLeche');
-                console.log(fechaQ)
-                const q = query(lecheCollectionRef, where('fecha','==',fechaQ));
-                const getLeche = async()=>{
-                console.log('useEffect - getLeche()');
-                const data = await getDocs(q);
+            const getLeche = async()=>{
 
-                const resultado = data.docs.map( (doc) => ({ id: doc.id, ...doc.data() }));
+                    
+                    setCargando(true);
+                    const lecheCollectionRef = collection(db,'gaspiLeche');
+                    
+                    const q = query(lecheCollectionRef, where('fecha','==',fechaQ));
+                    
+                    const data = await getDocs(q);
 
-                if(resultado && resultado.length>0){
-                    const orden = orderBy(resultado,['hora'],['desc']);  
+                    const resultado = data.docs.map( (doc) => ({ id: doc.id, ...doc.data() }));
 
-                    setLeche(orden);
-                
+                    if(resultado && resultado.length>0){
+                        const orden = orderBy(resultado,['hora'],['desc']);  
 
-                }
+                        setLeche(orden);
+                        
+                    } else {
+                        setLeche([]);
+                    }
+                    setCargando(false);
+
             };
+            
 
             getLeche();
 
@@ -84,6 +91,13 @@ export const Listado = () => {
 
             <button className='btn btn-danger mb-4 me-3' onClick={handleSalir}>Salir</button>
             
+
+
+            
+
+
+
+
             <h4>Fecha</h4>
             <input type="date" name="fechaQ" value={fechaQ} className="form-control mb-4" onChange={handleInputChange}></input>
 
@@ -94,10 +108,14 @@ export const Listado = () => {
                     (
                         <Tabla datos={leche} fecha={fechaQ}/>
                     ):
+                    (cargando)?
                     (
                         <div className="spinner-border mt-4" role="status">
                             <span className="visually-hidden">Loading...</span>
                         </div>
+                    ):
+                    (
+                        <><h4>No hay registros</h4></>
                     )
 
             }
