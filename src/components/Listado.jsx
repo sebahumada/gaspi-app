@@ -93,7 +93,7 @@ export const Listado = () => {
             <button className='btn btn-danger mt-1 me-1' onClick={handleSalir}>Salir</button>
             
 
-
+            <hr />
             
 
 

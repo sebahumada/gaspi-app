@@ -109,6 +109,7 @@ export const Estadisticas = () => {
         <>
         
             <button className='btn btn-warning mt-1 me-1' onClick={handleVolver}>Volver</button>
+            <hr />
             <h4>Gráficos leche últimos 7 días</h4>
 
             {

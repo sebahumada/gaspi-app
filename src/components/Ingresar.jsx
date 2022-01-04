@@ -101,6 +101,10 @@ const handleSalir = async ()=>{
 
             <button className='btn btn-danger mt-1 me-1' onClick={handleSalir}>Salir</button>
 
+            <hr />
+
+            <h4>Ingresar registro</h4>
+
           <form onSubmit={handleIngresar} className="form-control">
 
           <div className="form-floating mb-3">

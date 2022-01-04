@@ -93,7 +93,8 @@ export const Home = () => {
             <button className='btn btn-primary mt-1 me-1' onClick={handleListado}>Listado</button>
             <button className='btn btn-warning mt-1 me-1' onClick={handleEstadisticas}>Estadísticas</button>
             <button className='btn btn-danger mt-1 me-1' onClick={handleSalir}>Salir</button>
-            <br />
+            <hr />
+            <h4>Resumen</h4>
             { 
                 (leche.fecha)? 
                 (
