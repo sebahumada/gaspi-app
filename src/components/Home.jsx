@@ -62,6 +62,9 @@ export const Home = () => {
         const handleListado = ()=>{
             navigate('../listado', { replace: true });
         }
+        const handleEstadisticas = ()=>{
+            navigate('../estadisticas', { replace: true });
+        }
 
         const fechaProxima = dayjs(`${fecha} ${hora}`).add(150,'minutes').format('DD-MM-YYYY HH:mm');
         const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
@@ -86,6 +89,7 @@ export const Home = () => {
             <button className='btn btn-success me-3' onClick={handleIngresar}>Ingresar Registro</button>
             
             <button className='btn btn-primary me-3' onClick={handleListado}>Listado</button>
+            <button className='btn btn-warning me-3' onClick={handleEstadisticas}>Estadísticas</button>
             <button className='btn btn-danger me-3' onClick={handleSalir}>Salir</button>
             <br />
             { 
