@@ -19,7 +19,7 @@ export const Estadisticas = () => {
     });
 
 
-    function groupBy(arr, criteria) {
+    const groupBy = (arr, criteria)=> {
         const newObj = arr.reduce(function (acc, currentValue) {
           if (!acc[currentValue[criteria]]) {
             acc[currentValue[criteria]] = [];
@@ -108,7 +108,7 @@ export const Estadisticas = () => {
     return (
         <>
         
-            <button className='btn btn-warning mb-4 me-3' onClick={handleVolver}>Volver</button>
+            <button className='btn btn-warning mt-1 me-1' onClick={handleVolver}>Volver</button>
             <h4>Gráficos leche últimos 7 días</h4>
 
             {

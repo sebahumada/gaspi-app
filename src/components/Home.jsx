@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { onAuthStateChanged } from 'firebase/auth';
 
+
 export const Home = () => {
 
         const [leche, setLeche] = useState({});        
@@ -84,13 +85,14 @@ export const Home = () => {
 
     return (
         <div>
-
-
-            <button className='btn btn-success me-3' onClick={handleIngresar}>Ingresar Registro</button>
+        
             
-            <button className='btn btn-primary me-3' onClick={handleListado}>Listado</button>
-            <button className='btn btn-warning me-3' onClick={handleEstadisticas}>Estadísticas</button>
-            <button className='btn btn-danger me-3' onClick={handleSalir}>Salir</button>
+
+            <button className='btn btn-success mt-1 me-1' onClick={handleIngresar}>Ingresar Registro</button>
+            
+            <button className='btn btn-primary mt-1 me-1' onClick={handleListado}>Listado</button>
+            <button className='btn btn-warning mt-1 me-1' onClick={handleEstadisticas}>Estadísticas</button>
+            <button className='btn btn-danger mt-1 me-1' onClick={handleSalir}>Salir</button>
             <br />
             { 
                 (leche.fecha)? 
