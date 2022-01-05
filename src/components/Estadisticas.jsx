@@ -118,8 +118,8 @@ export const Estadisticas = () => {
     return (
         <>
         
-            <button className='btn btn-warning mt-1 me-1' onClick={handleVolver}>Volver</button>
-            <button className='btn btn-danger mt-1 me-1' onClick={handleSalir}>Salir</button>
+            <button className='btn btn-warning mt-1 me-1 btn-sm' onClick={handleVolver}>Volver</button>
+            <button className='btn btn-danger mt-1 me-1 btn-sm' onClick={handleSalir}>Salir</button>
             <hr />
             <h4>Gráficos leche últimos 7 días</h4>
 

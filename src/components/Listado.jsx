@@ -88,9 +88,9 @@ export const Listado = () => {
 
     return (
         <div>
-            <button className='btn btn-warning mt-1 me-1' onClick={handleVolver}>Volver</button>
+            <button className='btn btn-warning mt-1 me-1 btn-sm' onClick={handleVolver}>Volver</button>
 
-            <button className='btn btn-danger mt-1 me-1' onClick={handleSalir}>Salir</button>
+            <button className='btn btn-danger mt-1 me-1 btn-sm' onClick={handleSalir}>Salir</button>
             
 
             <hr />

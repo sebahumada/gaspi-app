@@ -88,11 +88,11 @@ export const Home = () => {
         
             
 
-            <button className='btn btn-success mt-1 me-1' onClick={handleIngresar}>Ingresar Registro</button>
+            <button className='btn btn-success mt-1 me-1 btn-sm' onClick={handleIngresar}>Ingresar Registro</button>
             
-            <button className='btn btn-primary mt-1 me-1' onClick={handleListado}>Listado</button>
-            <button className='btn btn-warning mt-1 me-1' onClick={handleEstadisticas}>Estadísticas</button>
-            <button className='btn btn-danger mt-1 me-1' onClick={handleSalir}>Salir</button>
+            <button className='btn btn-primary mt-1 me-1 btn-sm' onClick={handleListado}>Listado</button>
+            <button className='btn btn-warning mt-1 me-1 btn-sm' onClick={handleEstadisticas}>Estadísticas</button>
+            <button className='btn btn-danger mt-1 me-1 btn-sm' onClick={handleSalir}>Salir</button>
             <hr />
             <h4>Resumen</h4>
             { 
