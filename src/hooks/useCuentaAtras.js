@@ -26,6 +26,9 @@ export const useCuentaAtras = (fechaProxima) => {
 
 
     return {
-        minutos: cuentaAtras>=0?`En ${convertMinsToHrsMins(cuentaAtras)}`:`Atrasado por ${convertMinsToHrsMins(cuentaAtras*-1)}`
+        minutos: cuentaAtras>=0?`En ${convertMinsToHrsMins(cuentaAtras)}`:
+                        cuentaAtras?
+                        `Atrasado por ${convertMinsToHrsMins(cuentaAtras*-1)}`:
+                        `Espere...`
     };
 }
