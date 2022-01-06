@@ -62,7 +62,7 @@ export const Listado = () => {
                     const resultado = data.docs.map( (doc) => ({ id: doc.id, ...doc.data() }));
 
                     if(resultado && resultado.length>0){
-                        const orden = orderBy(resultado,['hora'],['desc']);  
+                        const orden = orderBy(resultado,['hora'],['asc']);  
 
                         setLeche(orden);
                         
