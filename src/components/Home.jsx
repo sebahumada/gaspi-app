@@ -56,7 +56,7 @@ export const Home = () => {
         
 
         const fechaProxima = dayjs(`${fecha} ${hora}`).add(150,'minutes').format('DD-MM-YYYY HH:mm');
-        const {minutos}=useCuentaAtras(fechaProxima);
+        const {mensaje, minutos}=useCuentaAtras(fechaProxima);
         const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
         
 
@@ -76,7 +76,14 @@ export const Home = () => {
                             <div className="card-header fw-bold">Próxima Leche</div>
                             <div className="card-body">
                                 
-                                <h4 className='card-title'>{minutos}</h4>
+                                {
+                                    (minutos>=0)?
+                                    (
+                                        <h4 className='card-title'>{mensaje}</h4>
+                                    ):(
+                                        <h2 className='card-title'>{mensaje}</h2>
+                                    )
+                                }
                                 <h5 className="card-title mt-3">{fechaProxima}</h5>
                                 
                             </div>

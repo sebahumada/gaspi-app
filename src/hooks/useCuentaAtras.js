@@ -26,9 +26,10 @@ export const useCuentaAtras = (fechaProxima) => {
 
 
     return {
-        minutos: cuentaAtras>=0?`En ${convertMinsToHrsMins(cuentaAtras)}`:
+        mensaje: cuentaAtras>=0?`En ${convertMinsToHrsMins(cuentaAtras)}`:
                         cuentaAtras?
                         `Atrasado por ${convertMinsToHrsMins(cuentaAtras*-1)}`:
-                        `Espere...`
+                        `Espere...`,
+        minutos:cuentaAtras && !isNaN(cuentaAtras)?cuentaAtras:0
     };
 }

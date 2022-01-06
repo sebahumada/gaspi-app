@@ -31,35 +31,49 @@ export const getDiferenciaFecha = (fechaProxima)=>{
 
 export const convertMinsToHrsMins = (mins) => {
 
-    try {
+    try {        
 
-        if(!mins){
+        if(isNaN(mins)){
             return '';
         }
 
         const h = Math.floor(mins / 60);
         const m = Math.round(mins % 60);
 
-        let mensajeSalidaH = '';
-        let mensajeSalidaM = '';
+        let msgH = '';
+        let msgM = '';
 
         if(h===0){
-            mensajeSalidaH = ''
+            msgH = ''
         } else if(h===1){
-            mensajeSalidaH = `${h} hora y `
+            msgH = `${h} hora`
         } else {
-            mensajeSalidaH = `${h} horas y`
+            msgH = `${h} horas`
         }
 
         if(m===0){
-            mensajeSalidaM = '0 minutos'
+            msgM = ''
         } else if(m===1){
-            mensajeSalidaM = `$1 minuto`
+            msgM = `1 minuto`
         } else {
-            mensajeSalidaM = `${m} minutos`
+            msgM = `${m} minutos`
         }
 
-        return `${mensajeSalidaH} ${mensajeSalidaM}`;
+        let msg = '';
+
+        if(msgH && msgM){
+            msg = `${msgH} y ${msgM}`;
+        } else if(msgH && !msgM){
+            msg = msgH;
+        } else if(!msgH && msgM){
+            msg = msgM;
+        } else if(!msgH && !msgM){
+            msg ='este momento!!!'
+        }
+
+        
+
+        return msg;
 
     } catch (error) {
         return ''
