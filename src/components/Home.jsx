@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Menu } from './Menu.jsx';
+import { useCuentaAtras } from './../hooks/useCuentaAtras';
 
 
 export const Home = () => {
@@ -55,7 +56,9 @@ export const Home = () => {
         
 
         const fechaProxima = dayjs(`${fecha} ${hora}`).add(150,'minutes').format('DD-MM-YYYY HH:mm');
+        const {minutos}=useCuentaAtras(fechaProxima);
         const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
+        
 
     return (
         <div>
@@ -73,8 +76,8 @@ export const Home = () => {
                             <div className="card-header fw-bold">Próxima Leche</div>
                             <div className="card-body">
                                 
-                               
-                                <h5 className="card-title">{fechaProxima}</h5>
+                                <h4 className='card-title'>{minutos}</h4>
+                                <h5 className="card-title mt-3">{fechaProxima}</h5>
                                 
                             </div>
                             </div>

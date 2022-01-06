@@ -7,6 +7,7 @@ import { Home } from './../components/Home';
 import { Ingresar } from './../components/Ingresar';
 import { auth } from './../database/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
+import { useDateTime } from './../hooks/useDateTime';
 
 export const AppRouter = () => {
 
@@ -22,6 +23,7 @@ export const AppRouter = () => {
     
     });
 
+    const {fecha} = useDateTime();
 
     const handleSalir = async ()=>{
         await auth.signOut();
@@ -47,6 +49,7 @@ export const AppRouter = () => {
                     )
                 }
             </div>
+            <h6>{fecha}</h6>
 
             
             <br />
