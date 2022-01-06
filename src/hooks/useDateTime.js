@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
+import dayjs from "dayjs";
 
 
 
 export const useDateTime = () => {
 
     
-    const [dateTime, setDatetime] = useState(new Date());
+    const [dateTime, setDatetime] = useState(dayjs());
     
 
     useEffect(() => {
-        const id = setInterval(() => setDatetime(new Date()), 1000);
+        const id = setInterval(() => setDatetime(dayjs()), 1000);
         return () => {
             clearInterval(id);
             
@@ -18,7 +19,7 @@ export const useDateTime = () => {
 
 
     return {
-        fecha: `${dateTime.toLocaleDateString()} - ${dateTime.toLocaleTimeString()}`                
+        fecha: `${dateTime.format('DD-MM-YYYY HH:mm:ss')}`                
 
     };
 
