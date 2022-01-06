@@ -8,6 +8,7 @@ import { Tabla } from './Tabla';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { onAuthStateChanged } from 'firebase/auth';
+import { Volver } from './Volver.jsx';
 
 export const Listado = () => {
 
@@ -21,16 +22,7 @@ export const Listado = () => {
 
     });
 
-    const handleSalir = async ()=>{
-        await auth.signOut();
-
-        console.log('saliendo...');
-        localStorage.clear();
-        onAuthStateChanged(auth, user => console.log('usuario? ',user));
-
-
-    }
-
+    
         const [leche, setLeche] = useState([]);
         
         const [cargando, setCargando] = useState(false);
@@ -80,17 +72,13 @@ export const Listado = () => {
 
         const navigate = useNavigate();
 
-        const handleVolver = ()=>{
-            navigate('../', { replace: true });
-        }
+        
 
 
 
     return (
         <div>
-            <button className='btn btn-warning mt-1 me-1 btn-sm' onClick={handleVolver}>Volver</button>
-
-            <button className='btn btn-danger mt-1 me-1 btn-sm' onClick={handleSalir}>Salir</button>
+            <Volver />            
             
 
             <hr />

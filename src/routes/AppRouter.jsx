@@ -1,15 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {  Routes, Route  } from "react-router-dom";
-import { Estadisticas } from '../components/Estadisticas.jsx';
-import { Listado } from '../components/Listado.jsx';
-import { Login } from '../components/Login.jsx';
+import { Estadisticas } from '../components/Estadisticas';
+import { Listado } from '../components/Listado';
+import { Login } from '../components/Login';
 import { Home } from './../components/Home';
 import { Ingresar } from './../components/Ingresar';
+import { auth } from './../database/firebase-config';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export const AppRouter = () => {
+
+    const [isLogged, setisLogged] = useState(true);
+
+    onAuthStateChanged(auth, user => {
+
+        if(!user){
+            setisLogged(false);
+        } else{
+            setisLogged(true);
+        }
+    
+    });
+
+
+    const handleSalir = async ()=>{
+        await auth.signOut();
+
+        console.log('saliendo...');
+        localStorage.clear();
+        onAuthStateChanged(auth, user => console.log('usuario? ',user));
+
+    }
     return (
         <div>
-            <h1>Gaspi APP</h1>
+            <div className='clearfix'>
+                <span className='h1 float-start'>Gaspi APP</span>
+                
+                {
+                    (isLogged)?
+                    (
+                        <button type='button' className='btn btn-danger btn-sm float-end' onClick={handleSalir}>Salir</button>
+
+                    ):
+                    (
+                        <></>
+                    )
+                }
+            </div>
+
+            
             <br />
             <Routes>
                     <Route path="/" element={<Home />} />

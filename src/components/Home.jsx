@@ -5,15 +5,15 @@ import { orderBy  } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { onAuthStateChanged } from 'firebase/auth';
+import { Menu } from './Menu.jsx';
 
 
 export const Home = () => {
 
-        const [leche, setLeche] = useState({});        
-        
-        //const q1 = query(lecheCollectionRef,   ordby('fecha','desc') ,limit(10));
-        //const q = query(q1,   ordby('hora','desc') ,limit(1));
+        const navigate = useNavigate();
 
+        const [leche, setLeche] = useState({});      
+        
 
         onAuthStateChanged(auth, user => {
 
@@ -22,8 +22,6 @@ export const Home = () => {
             }
 
         });
-
-        
 
         useEffect(() => {
 
@@ -51,48 +49,19 @@ export const Home = () => {
 
         }, []);
 
-        const {fecha, hora, cantidad, tipo} = leche;
-        //const fechaFormat = dayjs(fecha).format('DD-MM-YYYY');
+        const {fecha, hora, cantidad, tipo} = leche;              
         
-        const navigate = useNavigate();
 
-        const handleIngresar = ()=>{
-            navigate('../ingresar', { replace: true });
-        }
-
-        const handleListado = ()=>{
-            navigate('../listado', { replace: true });
-        }
-        const handleEstadisticas = ()=>{
-            navigate('../estadisticas', { replace: true });
-        }
+        
 
         const fechaProxima = dayjs(`${fecha} ${hora}`).add(150,'minutes').format('DD-MM-YYYY HH:mm');
         const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
 
-        const handleSalir = async ()=>{
-            await auth.signOut();
-
-            console.log('saliendo...');
-            localStorage.clear();
-            onAuthStateChanged(auth, user => console.log('usuario? ',user));
-
-
-        }
-        
-        
-
-
     return (
         <div>
         
+            <Menu />            
             
-
-            <button className='btn btn-success mt-1 me-1 btn-sm' onClick={handleIngresar}>Ingresar Registro</button>
-            
-            <button className='btn btn-primary mt-1 me-1 btn-sm' onClick={handleListado}>Listado</button>
-            <button className='btn btn-warning mt-1 me-1 btn-sm' onClick={handleEstadisticas}>Estadísticas</button>
-            <button className='btn btn-danger mt-1 me-1 btn-sm' onClick={handleSalir}>Salir</button>
             <hr />
             <h4>Resumen</h4>
             { 

@@ -1,33 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { auth, db } from '../database/firebase-config.js';
+import { db } from '../database/firebase-config';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import dayjs from 'dayjs';
 import { sumBy, orderBy } from 'lodash';
-import Grafico  from './Grafico.jsx';
+import Grafico  from './Grafico';
+import { Volver } from './Volver';
+import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
-
+import { auth } from './../database/firebase-config';
 
 export const Estadisticas = () => {
+
+    const navigate = useNavigate();
 
     onAuthStateChanged(auth, user => {
 
         if(!user){
             navigate('../login', { replace: true });
         }
-
+    
     });
-
-    const handleSalir = async ()=>{
-        await auth.signOut();
-      
-        console.log('saliendo...');
-        localStorage.clear();
-        onAuthStateChanged(auth, user => console.log('usuario? ',user));
-      
-      
-      }
-
 
     const groupBy = (arr, criteria)=> {
         const newObj = arr.reduce(function (acc, currentValue) {
@@ -107,19 +99,15 @@ export const Estadisticas = () => {
 
 
     
-    const navigate = useNavigate();
-
-        const handleVolver = ()=>{
-            navigate('../', { replace: true });
-        }
-
     
+
+        
 
     return (
         <>
         
-            <button className='btn btn-warning mt-1 me-1 btn-sm' onClick={handleVolver}>Volver</button>
-            <button className='btn btn-danger mt-1 me-1 btn-sm' onClick={handleSalir}>Salir</button>
+        <Volver />
+            
             <hr />
             <h4>Gráficos leche últimos 7 días</h4>
 
