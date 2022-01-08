@@ -99,7 +99,7 @@ export const Ingresar = () => {
 
             <h4>Ingresar registro</h4>
 
-          <form onSubmit={handleIngresar} className="form-control animate__animated animate__backInLeft">
+          <form onSubmit={handleIngresar} className="form-control animate__animated animate__slideInLeft">
 
           <div className="form-floating mb-3">
               <select name="tipo" value={tipo} id="flTipo" onChange={handleInputChange} className="form-select">

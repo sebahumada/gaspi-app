@@ -16,7 +16,7 @@ export const Tabla = ({datos=[], fecha}) => {
     return (
         <>
 
-            <div className='animate__animated animate__backInLeft'>
+            <div className='animate__animated animate__slideInLeft'>
             <h2>Registros fecha <span className="badge bg-primary">{fecha}</span></h2>
             <h3>Total <span className="badge bg-success">{cantidad} ml</span></h3>
             <table className="table table-striped">

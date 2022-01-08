@@ -87,7 +87,7 @@ export const Home = () => {
                 (leche.fecha)? 
                 (
                     <>
-                        <div className='card-group animate__animated animate__backInLeft'>
+                        <div className='card-group animate__animated animate__slideInLeft'>
                             <div className="card text-white bg-danger mt-4">
                             <div className="card-header fw-bold">Próxima Leche</div>
                             <div className="card-body">
