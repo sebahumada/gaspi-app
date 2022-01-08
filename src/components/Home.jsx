@@ -9,8 +9,12 @@ import { Menu } from './Menu.jsx';
 import { useCuentaAtras } from './../hooks/useCuentaAtras';
 
 
+
+
 export const Home = () => {
 
+
+        
         const navigate = useNavigate();
 
         const [leche, setLeche] = useState({});      
@@ -28,6 +32,7 @@ export const Home = () => {
 
 
                 const getLeche = async()=>{
+                    
                     const lecheCollectionRef = collection(db,'gaspiLeche');        
                     const q = query(lecheCollectionRef,  ordby('fecha','desc'), ordby('hora','desc') ,limit(1));
                     
@@ -38,8 +43,11 @@ export const Home = () => {
                     if(resultado && resultado.length>0){
                         
                         const orden = orderBy(resultado,['fecha','hora'],['desc','desc']);      
-                               
+                                                    
                         setLeche(orden[0]);
+                        
+                        
+                        
                     } else {
                         setLeche({})
                     }
@@ -47,17 +55,22 @@ export const Home = () => {
             };
 
             getLeche();
+            
 
         }, []);
-
+        
         const {fecha, hora, cantidad, tipo} = leche;              
         
 
         
-
+        
         const fechaProxima = dayjs(`${fecha} ${hora}`).add(150,'minutes').format('DD-MM-YYYY HH:mm');
         const {mensaje, minutos}=useCuentaAtras(fechaProxima);
         const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
+
+        
+
+        
         
 
     return (
@@ -67,6 +80,8 @@ export const Home = () => {
             
             <hr />
             <h4>Resumen</h4>
+
+            
             { 
                 (leche.fecha)? 
                 (

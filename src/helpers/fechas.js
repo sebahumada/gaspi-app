@@ -29,7 +29,37 @@ export const getDiferenciaFecha = (fechaProxima)=>{
 
 }
 
-export const convertMinsToHrsMins = (mins) => {
+
+export const getDiferenciaFechaSec = (fechaProxima)=>{
+
+    
+
+    try {
+
+        if(!fechaProxima)
+        return 150;
+
+        const fechaSplit = fechaProxima.split(' ');
+        const [dia, hora] = fechaSplit;
+        const separaDia = dia.split('-');
+        const[dd,mm,aa] = separaDia;
+        const separaHora = hora.split(':');
+        const [hh, mi] = separaHora;
+        const fechaProximaDate = new Date(aa,mm-1,dd,hh,mi,0,0);
+        const fechaProx = dayjs(fechaProximaDate);
+                        
+        const ahora = dayjs();
+
+        const diferencia = fechaProx.diff(ahora,'seconds');
+        
+        return diferencia;
+    } catch (error) {
+        return 150;
+    }       
+
+}
+
+export const convertMinsToHrsMins = (mins, segs) => {
 
     try {        
 
@@ -68,7 +98,11 @@ export const convertMinsToHrsMins = (mins) => {
         } else if(!msgH && msgM){
             msg = msgM;
         } else if(!msgH && !msgM){
-            msg ='este momento!!!'
+            if(segs <= 0){
+                msg ='este momento!!!'
+            } else {
+                msg = `${segs} seg.`
+            }
         }
 
         
