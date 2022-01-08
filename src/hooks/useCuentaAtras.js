@@ -14,7 +14,7 @@ export const useCuentaAtras = (fechaProxima) => {
         const id = setInterval( () => {
                 const diferencia = getDiferenciaFecha(fechaProxima);
                 const segundos = getDiferenciaFechaSec(fechaProxima);
-                console.log(segundos);
+                
                 
                 setCuentaAtras(diferencia);
                 setsegundosFaltantes(segundos);
