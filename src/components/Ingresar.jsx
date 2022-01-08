@@ -41,8 +41,10 @@ export const Ingresar = () => {
       const semana=dayjs().add(-7,'day').format('YYYY-MM-DD')
 
 
-      const handleIngresar = async(e)=>{
+     
 
+      const handleIngresar = async(e)=>{
+      
 
         try {
             
@@ -86,7 +88,7 @@ export const Ingresar = () => {
       }
 
       const navigate = useNavigate();
-
+      
         
 
     return (
@@ -97,7 +99,7 @@ export const Ingresar = () => {
 
             <hr />
 
-            <h4>Ingresar registro</h4>
+            <h4>Ingresar leche</h4>
 
           <form onSubmit={handleIngresar} className="form-control animate__animated animate__slideInLeft">
 
@@ -124,14 +126,12 @@ export const Ingresar = () => {
             <label htmlFor="flHora">Ingresa Hora</label>
           </div>
 
-          <div className=" mb-3">
-            <input className="form-check-input" type="checkbox" checked={nocturno} name="nocturno" onChange={handleInputChange}  id="flexCheckDefault" />
-            <label className="form-check-label" htmlFor="flexCheckDefault">
-              Próxima leche nocturna?
-            </label>
+          <div className="form-check form-switch">
+            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={nocturno} name="nocturno" onChange={handleInputChange} />
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Leche nocturna</label>
           </div>
 
-            <button type="submit" className="btn btn-primary mt-2">Ingresar</button>
+            <button type="submit" className="btn btn-primary mt-2">Ingresar Leche</button>
         </form>
 
         

@@ -18,7 +18,7 @@ export const Menu = () => {
 
     return (
         <>
-            <button className='btn btn-success mt-1 me-1 btn-sm' onClick={handleIngresar}>Ingresar Registro</button>
+            <button className='btn btn-success mt-1 me-1 btn-sm' onClick={handleIngresar}>Ingresar Leche</button>
             
             <button className='btn btn-primary mt-1 me-1 btn-sm' onClick={handleListado}>Listado</button>
             <button className='btn btn-info mt-1 me-1 btn-sm' onClick={handleEstadisticas}>Estadísticas</button>
