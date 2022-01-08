@@ -34,7 +34,7 @@ export const useCuentaAtras = (fechaProxima) => {
     
     const handlePlay = ()=>{
         const beep = new Audio(beepSound);
-        alert('Dar leche!');        
+           
         if(beep.paused){
             beep.play();
         } else {
