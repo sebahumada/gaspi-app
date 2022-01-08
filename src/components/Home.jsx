@@ -59,12 +59,13 @@ export const Home = () => {
 
         }, []);
         
-        const {fecha, hora, cantidad, tipo} = leche;              
+        const {fecha, hora, cantidad, tipo, nocturno} = leche;              
         
+        const minutosProxima = !nocturno? 140: 180;
 
         
         
-        const fechaProxima = dayjs(`${fecha} ${hora}`).add(150,'minutes').format('DD-MM-YYYY HH:mm');
+        const fechaProxima = dayjs(`${fecha} ${hora}`).add(minutosProxima,'minutes').format('DD-MM-YYYY HH:mm');
         const {mensaje, minutos}=useCuentaAtras(fechaProxima);
         const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
 
@@ -86,8 +87,8 @@ export const Home = () => {
                 (leche.fecha)? 
                 (
                     <>
-                        <div className='card-group'>
-                            <div className="card text-white bg-danger mt-4 ">
+                        <div className='card-group animate__animated animate__backInLeft'>
+                            <div className="card text-white bg-danger mt-4">
                             <div className="card-header fw-bold">Próxima Leche</div>
                             <div className="card-body">
                                 
@@ -112,6 +113,7 @@ export const Home = () => {
                                 <p className="card-text">Hora: {hora}</p>
                                 <p className="card-text">Cantidad: {cantidad} ml</p>
                                 <p className="card-text">Tipo: {tipo}</p>
+                                <p className="card-text">Próxima leche nocturna?: {nocturno?'Si':'No'}</p>
                                 
                             </div>
                             </div>

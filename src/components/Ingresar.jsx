@@ -30,14 +30,16 @@ export const Ingresar = () => {
         cantidad:60,
         fecha:dayjs().format('YYYY-MM-DD'),
         hora:dayjs().format('HH:mm'),
-        tipo:'Relleno'
+        tipo:'Relleno',
+        nocturno: false
       });
 
 
-      const {fecha, cantidad, hora, tipo} = formValues;
+      const {fecha, cantidad, hora, tipo, nocturno} = formValues;
 
       const hoy=dayjs().format('YYYY-MM-DD');
       const semana=dayjs().add(-7,'day').format('YYYY-MM-DD')
+
 
       const handleIngresar = async(e)=>{
 
@@ -50,7 +52,8 @@ export const Ingresar = () => {
               cantidad: Number(cantidad),
               fecha,
               hora,      
-              tipo               
+              tipo,
+              nocturno               
           };
         
             await addDoc(lecheCollectionRef, nuevoRegistro );
@@ -96,7 +99,7 @@ export const Ingresar = () => {
 
             <h4>Ingresar registro</h4>
 
-          <form onSubmit={handleIngresar} className="form-control">
+          <form onSubmit={handleIngresar} className="form-control animate__animated animate__backInLeft">
 
           <div className="form-floating mb-3">
               <select name="tipo" value={tipo} id="flTipo" onChange={handleInputChange} className="form-select">
@@ -121,6 +124,12 @@ export const Ingresar = () => {
             <label htmlFor="flHora">Ingresa Hora</label>
           </div>
 
+          <div className=" mb-3">
+            <input className="form-check-input" type="checkbox" checked={nocturno} name="nocturno" onChange={handleInputChange}  id="flexCheckDefault" />
+            <label className="form-check-label" htmlFor="flexCheckDefault">
+              Próxima leche nocturna?
+            </label>
+          </div>
 
             <button type="submit" className="btn btn-primary mt-2">Ingresar</button>
         </form>
