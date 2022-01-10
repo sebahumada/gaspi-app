@@ -33,10 +33,15 @@ export const AppRouter = () => {
         onAuthStateChanged(auth, user => console.log('usuario? ',user));
 
     }
+
+    const letra={
+        fontFamily:'system-ui,Roboto,Arial,sans-serif'
+    }
+    
     return (
-        <div>
+        <div className='bg-white p-4'>
             <div className='clearfix'>
-                <span className='h1 float-start'>Gaspi APP</span>
+                <span className='h1 float-start' style={letra}>Gaspi APP</span>
                 
                 {
                     (isLogged)?
@@ -49,7 +54,7 @@ export const AppRouter = () => {
                     )
                 }
             </div>
-            <h6><span class="badge rounded-pill bg-dark">{fecha}</span></h6>
+            <h5><span class="badge bg-danger" >{fecha}</span></h5>
 
             
             <br />

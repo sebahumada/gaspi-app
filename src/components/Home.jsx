@@ -88,7 +88,7 @@ export const Home = () => {
                 (leche.fecha)? 
                 (
                     <>
-                    <div className="card border-dark mb-3 animate__animated animate__slideInLeft">
+                    <div className="card border-dark mb-3 animate__animated animate__fadeIn">
                     <div class="card-header"><h4>Resumen</h4></div>
                     <div class="card-body">
                     <h6 className='card-title'>Última actualización: <span className="badge rounded-pill bg-dark text-light">{actualizadoA}</span></h6>

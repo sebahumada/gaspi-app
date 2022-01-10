@@ -98,11 +98,11 @@ export const Ingresar = () => {
             
 
             <hr />
-            <div className='card border-dark m-3'>
-
-            <h4>Ingresar leche</h4>
-
-                      <form onSubmit={handleIngresar} className="form-control animate__animated animate__slideInLeft">
+            <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
+            <div class="card-header"><h4>Ingresar leche</h4></div>
+            
+            <div class="card-body">
+                      <form onSubmit={handleIngresar} className="form-control">
 
                       <div className="form-floating mb-3">
                           <select name="tipo" value={tipo} id="flTipo" onChange={handleInputChange} className="form-select">
@@ -137,6 +137,7 @@ export const Ingresar = () => {
 
 
 
+              </div>
             </div>
         
     </div>
