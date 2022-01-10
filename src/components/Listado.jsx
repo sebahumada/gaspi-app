@@ -85,29 +85,32 @@ export const Listado = () => {
             
 
 
+            <div className='card border-dark m-3'>
+
+                <h4>Fecha</h4>
+                <input type="date" name="fechaQ" value={fechaQ} max={hoy} className="form-control mb-4" onChange={handleInputChange}></input>
 
 
-            <h4>Fecha</h4>
-            <input type="date" name="fechaQ" value={fechaQ} max={hoy} className="form-control mb-4" onChange={handleInputChange}></input>
+                {
 
+                    (leche && leche.length>0)?
+                        (
+                            <Tabla datos={leche} fecha={fechaQ}/>
+                        ):
+                        (cargando)?
+                        (
+                            <div className="spinner-border mt-4" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
+                        ):
+                        (
+                            <><h4>No hay registros</h4></>
+                        )
 
-            {
+                }
 
-                (leche && leche.length>0)?
-                    (
-                        <Tabla datos={leche} fecha={fechaQ}/>
-                    ):
-                    (cargando)?
-                    (
-                        <div className="spinner-border mt-4" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    ):
-                    (
-                        <><h4>No hay registros</h4></>
-                    )
+            </div>
 
-            }
         </div>
     )
 }

@@ -19,6 +19,7 @@ export const Home = () => {
 
         const [leche, setLeche] = useState({});      
         
+        const [actualizadoA] = useState(dayjs().format('DD-MM-YYYY HH:mm:ss'))
 
         onAuthStateChanged(auth, user => {
 
@@ -80,14 +81,19 @@ export const Home = () => {
             <Menu />            
             
             <hr />
-            <h4>Resumen</h4>
-
+            {/* <h4>Resumen:</h4>
+            <h6>Actualizado a: <span className="badge bg-secondary">{actualizadoA}</span></h6> */}
             
             { 
                 (leche.fecha)? 
                 (
                     <>
-                        <div className='card-group animate__animated animate__slideInLeft'>
+                    <div className="card border-dark mb-3 animate__animated animate__slideInLeft">
+                    <div class="card-header"><h4>Resumen</h4></div>
+                    <div class="card-body">
+                    <h6 className='card-title'>Última actualización: <span className="badge rounded-pill bg-dark text-light">{actualizadoA}</span></h6>
+                        
+                    <div className='card-group'>
                             <div className="card text-white bg-danger mt-4">
                             <div className="card-header fw-bold">Próxima Leche</div>
                             <div className="card-body">
@@ -117,7 +123,18 @@ export const Home = () => {
                                 
                             </div>
                             </div>
-                        </div>
+                        </div>                  
+
+
+
+                    </div>
+                    </div>
+
+
+
+
+
+                        
 
                         
 

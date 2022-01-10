@@ -49,7 +49,7 @@ export const AppRouter = () => {
                     )
                 }
             </div>
-            <h6>{fecha}</h6>
+            <h6><span class="badge rounded-pill bg-dark">{fecha}</span></h6>
 
             
             <br />

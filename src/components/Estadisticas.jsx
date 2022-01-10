@@ -109,25 +109,30 @@ export const Estadisticas = () => {
         <Volver />
             
             <hr />
-            <h4>Gráficos leche últimos 7 días</h4>
 
-            {
-                (leche && leche.length>0)?
+            <div className='card border-dark m-3'>
 
-                (
-                    <Grafico leche={leche} />
+                <h4>Gráficos leche últimos 7 días</h4>
 
-                ):
-                (cargando)?
-                (
-                    <div className="spinner-border mt-4" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                ):
-                (
-                    <><h4>No hay registros</h4></>
-                )
-            }
+                {
+                    (leche && leche.length>0)?
+
+                    (
+                        <Grafico leche={leche} />
+
+                    ):
+                    (cargando)?
+                    (
+                        <div className="spinner-border mt-4" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    ):
+                    (
+                        <><h4>No hay registros</h4></>
+                    )
+                }
+            </div>
+
 
         </>
         

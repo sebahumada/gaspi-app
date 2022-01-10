@@ -98,42 +98,46 @@ export const Ingresar = () => {
             
 
             <hr />
+            <div className='card border-dark m-3'>
 
             <h4>Ingresar leche</h4>
 
-          <form onSubmit={handleIngresar} className="form-control animate__animated animate__slideInLeft">
+                      <form onSubmit={handleIngresar} className="form-control animate__animated animate__slideInLeft">
 
-          <div className="form-floating mb-3">
-              <select name="tipo" value={tipo} id="flTipo" onChange={handleInputChange} className="form-select">
-                  <option value="Relleno">Relleno</option>
-                  <option value="Materna">Materna</option>
-              </select>
-              <label htmlFor="flTipo">Ingresa Tipo</label>
-          </div>
-            
-          <div className="form-floating mb-3">
-            <input type="number" name="cantidad" id="flCantidad" value={cantidad} min={0} max={999} className="form-control" onChange={handleInputChange}></input>
-            <label htmlFor="flCantidad">Ingresa Cantidad (ml)</label>            
-          </div>
+                      <div className="form-floating mb-3">
+                          <select name="tipo" value={tipo} id="flTipo" onChange={handleInputChange} className="form-select">
+                              <option value="Relleno">Relleno</option>
+                              <option value="Materna">Materna</option>
+                          </select>
+                          <label htmlFor="flTipo">Ingresa Tipo</label>
+                      </div>
+                        
+                      <div className="form-floating mb-3">
+                        <input type="number" name="cantidad" id="flCantidad" value={cantidad} min={0} max={999} className="form-control" onChange={handleInputChange}></input>
+                        <label htmlFor="flCantidad">Ingresa Cantidad (ml)</label>            
+                      </div>
 
-          <div className="form-floating mb-3">
-            <input type="date" name="fecha" id="flFecha" value={fecha} min={semana} max={hoy} className="form-control" onChange={handleInputChange}></input>
-            <label htmlFor="flFecha">Ingresa Fecha</label>
-          </div>
+                      <div className="form-floating mb-3">
+                        <input type="date" name="fecha" id="flFecha" value={fecha} min={semana} max={hoy} className="form-control" onChange={handleInputChange}></input>
+                        <label htmlFor="flFecha">Ingresa Fecha</label>
+                      </div>
 
-          <div className="form-floating mb-3">
-            <input type="time" name="hora" id="flHora" value={hora} className="form-control" onChange={handleInputChange}></input>
-            <label htmlFor="flHora">Ingresa Hora</label>
-          </div>
+                      <div className="form-floating mb-3">
+                        <input type="time" name="hora" id="flHora" value={hora} className="form-control" onChange={handleInputChange}></input>
+                        <label htmlFor="flHora">Ingresa Hora</label>
+                      </div>
 
-          <div className="form-check form-switch">
-            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={nocturno} name="nocturno" onChange={handleInputChange} />
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Leche nocturna</label>
-          </div>
+                      <div className="form-check form-switch">
+                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={nocturno} name="nocturno" onChange={handleInputChange} />
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Leche nocturna</label>
+                      </div>
 
-            <button type="submit" className="btn btn-primary mt-2">Ingresar Leche</button>
-        </form>
+                        <button type="submit" className="btn btn-primary mt-2">Ingresar Leche</button>
+                    </form>
 
+
+
+            </div>
         
     </div>
     )
