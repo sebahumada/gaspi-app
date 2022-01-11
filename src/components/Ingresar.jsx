@@ -99,9 +99,9 @@ export const Ingresar = () => {
 
             <hr />
             <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
-            <div class="card-header"><h4>Ingresar leche</h4></div>
+            <div className="card-header"><h4>Ingresar leche</h4></div>
             
-            <div class="card-body">
+            <div className="card-body">
                       <form onSubmit={handleIngresar} className="form-control">
 
                       <div className="form-floating mb-3">

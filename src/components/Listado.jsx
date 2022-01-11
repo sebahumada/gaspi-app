@@ -86,11 +86,11 @@ export const Listado = () => {
 
 
             <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
-            <div class="card-header">
+            <div className="card-header">
                 <h4>Fecha</h4>
                 
             </div>
-            <div class="card-body">
+            <div className="card-body">
                 <input type="date" name="fechaQ" value={fechaQ} max={hoy} className="form-control mb-4" onChange={handleInputChange}></input>
 
 

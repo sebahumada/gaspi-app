@@ -18,8 +18,8 @@ export const Home = () => {
         const navigate = useNavigate();
 
         const [leche, setLeche] = useState({});      
-        
-        const [actualizadoA] = useState(dayjs().format('DD-MM-YYYY HH:mm:ss'))
+        const [cargar, setCargar] = useState(true)
+        const [actualizadoA, setActualizadoA] = useState(dayjs().format('DD-MM-YYYY HH:mm:ss'))
 
         onAuthStateChanged(auth, user => {
 
@@ -33,6 +33,7 @@ export const Home = () => {
 
 
                 const getLeche = async()=>{
+                    
                     
                     const lecheCollectionRef = collection(db,'gaspiLeche');        
                     const q = query(lecheCollectionRef,  ordby('fecha','desc'), ordby('hora','desc') ,limit(1));
@@ -55,10 +56,15 @@ export const Home = () => {
                 
             };
 
-            getLeche();
+            if(cargar){
+                
+                getLeche();
+                setCargar(false);
+
+            }
             
 
-        }, []);
+        }, [cargar]);
         
         const {fecha, hora, cantidad, tipo, nocturno} = leche;              
         
@@ -71,7 +77,10 @@ export const Home = () => {
         const fechaFormat = dayjs(`${fecha}`).format('DD-MM-YYYY');
 
         
-
+        const handleActualizar = ()=>{
+            setCargar(true);
+            setActualizadoA(dayjs().format('DD-MM-YYYY HH:mm:ss'));
+        }
         
         
 
@@ -89,9 +98,21 @@ export const Home = () => {
                 (
                     <>
                     <div className="card border-dark mb-3 animate__animated animate__fadeIn">
-                    <div class="card-header"><h4>Resumen</h4></div>
-                    <div class="card-body">
-                    <h6 className='card-title'>Última actualización: <span className="badge rounded-pill bg-dark text-light">{actualizadoA}</span></h6>
+                    <div className="card-header"><h4>Resumen</h4></div>
+                    <div className="card-body">
+                    <div className='clearfix'>
+                        <h6 className='card-title float-start'>Última actualización: <span className="badge rounded-pill bg-dark text-light">{actualizadoA}</span></h6>
+                        
+                        {
+                            (minutos<0)?
+
+                            (
+                                <button className='btn btn-danger btn-sm  float-start' onClick={handleActualizar}>Desactualizado?</button>
+                            ):(
+                                <></>
+                                )
+                        }
+                    </div>                        
                         
                     <div className='card-group'>
                             <div className="card text-white bg-danger mt-4">

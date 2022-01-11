@@ -112,11 +112,11 @@ export const Estadisticas = () => {
 
             <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
 
-                <div class="card-header">
+                <div className="card-header">
                     <h4>Gráficos leche últimos 7 días</h4>
                 </div>
 
-                <div class="card-body">
+                <div className="card-body">
                 {
                     (leche && leche.length>0)?
 

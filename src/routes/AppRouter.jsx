@@ -54,7 +54,7 @@ export const AppRouter = () => {
                     )
                 }
             </div>
-            <h5><span class="badge bg-danger" >{fecha}</span></h5>
+            <h5><span className="badge bg-danger" >{fecha}</span></h5>
 
             
             <br />
