@@ -39,7 +39,7 @@ export const AppRouter = () => {
     }
     
     return (
-        <div className='bg-white p-4'>
+        <div className='bg-white p-1'>
             <div className='clearfix'>
                 <span className='h1 float-start' style={letra}>Gaspi APP</span>
                 
