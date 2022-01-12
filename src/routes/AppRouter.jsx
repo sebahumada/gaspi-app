@@ -8,6 +8,7 @@ import { Ingresar } from './../components/Ingresar';
 import { auth } from './../database/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDateTime } from './../hooks/useDateTime';
+import bebe from '../assets/baby.png';
 
 export const AppRouter = () => {
 
@@ -38,24 +39,28 @@ export const AppRouter = () => {
         fontFamily:'system-ui,Roboto,Arial,sans-serif'
     }
     
+    const imgBebe = {
+        maxWidth:'20%'
+    }
     return (
         <>
         <div className='bg-white'>
             <div className='clearfix'>
-                <span className='h1 float-start' style={letra}>Gaspi APP</span>
+                <img src={bebe} alt="bebe" className='img-responsive float-start' style={imgBebe}/>
+                <span className='h1 float-center' style={letra}>Lechit.app</span>
                 
                 {
                     (isLogged)?
                     (
-                        <button type='button' className='btn btn-danger btn-sm float-end' onClick={handleSalir}>Salir</button>
+                        <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}>Salir</button>
 
                     ):
                     (
                         <></>
                     )
                 }
+            <h5><span className="badge bg-danger float-start" >{fecha}</span></h5>
             </div>
-            <h5><span className="badge bg-danger" >{fecha}</span></h5>
 
             
             <br />
