@@ -94,20 +94,20 @@ export const Home = () => {
             <h6>Actualizado a: <span className="badge bg-secondary">{actualizadoA}</span></h6> */}
             
             { 
-                (leche.fecha)? 
+                (leche.fecha && cargar===false)? 
                 (
                     <>
                     <div className="card border-dark mb-3 animate__animated animate__fadeIn">
-                    <div className="card-header"><h4>Resumen</h4></div>
+                    <div className="card-header"><h4>Resumen</h4> <h6 className='card-title float-start'>Actualizado: <span className="badge rounded-pill bg-dark text-light">{actualizadoA}</span></h6></div>
                     <div className="card-body">
                     <div className='clearfix'>
-                        <h6 className='card-title float-start'>Última actualización: <span className="badge rounded-pill bg-dark text-light">{actualizadoA}</span></h6>
+                        
                         
                         {
-                            (minutos<0)?
+                            (minutos<20)?
 
                             (
-                                <button className='btn btn-danger btn-sm  float-start' onClick={handleActualizar}>Desactualizado?</button>
+                                <button className='btn btn-light btn-sm' onClick={handleActualizar}>Recargar</button>
                             ):(
                                 <></>
                                 )

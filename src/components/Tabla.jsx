@@ -19,7 +19,7 @@ export const Tabla = ({datos=[], fecha}) => {
             
             <h2>Registros fecha <span className="badge bg-primary">{fecha}</span></h2>
             <h3>Total <span className="badge bg-success">{cantidad} ml</span></h3>
-            <table className="table table-info table-striped text-center">
+            <table className="table table-light table-striped text-center">
                     <thead className='table-dark'>
                         <tr>
                             <th scope="col">#</th>

@@ -102,7 +102,7 @@ export const Ingresar = () => {
             <div className="card-header"><h4>Ingresar leche</h4></div>
             
             <div className="card-body">
-                      <form onSubmit={handleIngresar} className="form-control">
+                      <form onSubmit={handleIngresar}>
 
                       <div className="form-floating mb-3">
                           <select name="tipo" value={tipo} id="flTipo" onChange={handleInputChange} className="form-select">

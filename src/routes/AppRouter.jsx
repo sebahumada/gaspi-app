@@ -39,7 +39,8 @@ export const AppRouter = () => {
     }
     
     return (
-        <div className='bg-white p-1'>
+        <>
+        <div className='bg-white'>
             <div className='clearfix'>
                 <span className='h1 float-start' style={letra}>Gaspi APP</span>
                 
@@ -67,6 +68,7 @@ export const AppRouter = () => {
                 </Routes>
 
 
-        </div>
+            </div>
+        </>
     )
 }
