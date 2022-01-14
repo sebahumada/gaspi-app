@@ -65,7 +65,8 @@ export const Home = () => {
 
         }, [cargar]);
         
-        const {fecha, hora, cantidad, tipo, nocturno} = leche;              
+        //const {fecha, hora, cantidad, tipo, nocturno} = leche;              
+        const {fecha, hora, cantidad, tipo} = leche;              
         
         const minutosProxima = 180;//!nocturno? 140: 180;
 
@@ -139,7 +140,7 @@ export const Home = () => {
                                 <p className="card-text">Hora: {hora}</p>
                                 <p className="card-text">Cantidad: {cantidad} ml</p>
                                 <p className="card-text">Tipo: {tipo}</p>
-                                <p className="card-text">Próxima leche nocturna?: {nocturno?'Si':'No'}</p>
+                                {/* <p className="card-text">Próxima leche nocturna?: {nocturno?'Si':'No'}</p> */}
                                 
                             </div>
                             </div>
