@@ -55,7 +55,7 @@ export const AppRouter = () => {
     return (
         <>
             <div className='bg-white'>
-                <div className='clearfix mt-2' style={sticky}>
+                <div className='clearfix mt-2 border-bottom mb-3' style={sticky}>
                     <img src={bebe} alt="bebe" className='img-responsive float-start' style={imgBebe}/>
                     <span className='h1 float-center' style={letra}>Lechit.app</span>
                     
@@ -86,15 +86,18 @@ export const AppRouter = () => {
                 <br />
 
                 </div>
-                <hr />
                 
-                <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/listado" element={<Listado />} />      
-                        <Route path="/ingresar" element={<Ingresar />} />
-                        <Route path="/estadisticas" element={<Estadisticas />} />
-                </Routes>
+                <div className='mt-1'>
+                    <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/listado" element={<Listado />} />      
+                            <Route path="/ingresar" element={<Ingresar />} />
+                            <Route path="/estadisticas" element={<Estadisticas />} />
+                    </Routes>
+
+                </div>
+                
 
 
             </div>
