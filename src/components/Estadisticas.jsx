@@ -4,7 +4,6 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import dayjs from 'dayjs';
 import { sumBy, orderBy } from 'lodash';
 import Grafico  from './Grafico';
-import { Volver } from './Volver';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './../database/firebase-config';
@@ -106,14 +105,14 @@ export const Estadisticas = () => {
     return (
         <>
         
-        <Volver />
+        
             
             <hr />
 
             <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
 
                 <div className="card-header">
-                    <h4>Gráficos leche últimos 7 días</h4>
+                    <h4>Gráfico leche últimos 7 días</h4>
                 </div>
 
                 <div className="card-body">

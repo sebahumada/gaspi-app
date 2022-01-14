@@ -8,7 +8,7 @@ import { Tabla } from './Tabla';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { onAuthStateChanged } from 'firebase/auth';
-import { Volver } from './Volver.jsx';
+
 
 export const Listado = () => {
 
@@ -78,7 +78,7 @@ export const Listado = () => {
 
     return (
         <div>
-            <Volver />            
+                  
             
 
             <hr />
@@ -88,7 +88,7 @@ export const Listado = () => {
             <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
             <div className="card-header">
                 <div className='clearfix'>
-                    <span className='h4 float-start'>Fecha </span>    
+                    <span className='h4 float-start'>Listado Fecha </span>    
                     <input type="date" name="fechaQ" value={fechaQ} max={hoy} className="form-control float-end" onChange={handleInputChange} />
                 </div>
                 

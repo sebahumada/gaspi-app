@@ -9,6 +9,8 @@ import { auth } from './../database/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDateTime } from './../hooks/useDateTime';
 import bebe from '../assets/baby.png';
+import { Botonera } from '../components/Botonera.jsx';
+
 
 export const AppRouter = () => {
 
@@ -42,9 +44,14 @@ export const AppRouter = () => {
     const imgBebe = {
         maxWidth:'20%'
     }
+
+    const sticky = {
+        position: 'sticky',
+        top: 0
+    }
     return (
         <>
-        <div className='bg-white'>
+        <div className='bg-white' style={sticky}>
             <div className='clearfix'>
                 <img src={bebe} alt="bebe" className='img-responsive float-start' style={imgBebe}/>
                 <span className='h1 float-center' style={letra}>Lechit.app</span>
@@ -52,7 +59,12 @@ export const AppRouter = () => {
                 {
                     (isLogged)?
                     (
-                        <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}>Salir</button>
+                        <>
+                            <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}>Salir</button>
+                            
+                        
+                        </>
+                        
 
                     ):
                     (
@@ -64,6 +76,8 @@ export const AppRouter = () => {
 
             
             <br />
+            <Botonera />
+            <br/>
             <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />

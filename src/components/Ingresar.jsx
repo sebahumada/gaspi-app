@@ -8,7 +8,7 @@ import { auth, db } from './../database/firebase-config';
 import { useNavigate } from 'react-router-dom';
 import  Swal from 'sweetalert2';
 import { onAuthStateChanged } from 'firebase/auth';
-import { Volver } from './Volver.jsx';
+
 
 export const Ingresar = () => {
 
@@ -94,7 +94,7 @@ export const Ingresar = () => {
     return (
         <div>
             
-          <Volver />
+          
             
 
             <hr />

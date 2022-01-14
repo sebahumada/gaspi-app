@@ -5,7 +5,6 @@ import { orderBy  } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { onAuthStateChanged } from 'firebase/auth';
-import { Menu } from './Menu.jsx';
 import { useCuentaAtras } from './../hooks/useCuentaAtras';
 
 
@@ -87,14 +86,14 @@ export const Home = () => {
     return (
         <div>
         
-            <Menu />            
+            
             
             <hr />
             {/* <h4>Resumen:</h4>
             <h6>Actualizado a: <span className="badge bg-secondary">{actualizadoA}</span></h6> */}
             
             { 
-                (leche.fecha && cargar===false)? 
+                (fecha && mensaje!=='Espere...' && cargar===false)? 
                 (
                     <>
                     <div className="card border-dark mb-3 animate__animated animate__fadeIn">
