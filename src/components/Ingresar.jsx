@@ -27,7 +27,7 @@ export const Ingresar = () => {
     const lecheCollectionRef = collection(db,'gaspiLeche');
 
     const[formValues, handleInputChange] = useForm({
-        cantidad:60,
+        cantidad:80,
         fecha:dayjs().format('YYYY-MM-DD'),
         hora:dayjs().format('HH:mm'),
         tipo:'Relleno',
@@ -127,10 +127,10 @@ export const Ingresar = () => {
                         <label htmlFor="flHora">Ingresa Hora</label>
                       </div>
 
-                      <div className="form-check form-switch">
+                      {/* <div className="form-check form-switch">
                         <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={nocturno} name="nocturno" onChange={handleInputChange} />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Leche nocturna</label>
-                      </div>
+                      </div> */}
 
                         <button type="submit" className="btn btn-primary mt-2">Ingresar Leche</button>
                     </form>
