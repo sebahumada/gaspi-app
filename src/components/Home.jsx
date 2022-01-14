@@ -89,7 +89,7 @@ export const Home = () => {
         
             
             
-            <hr />
+           
             {/* <h4>Resumen:</h4>
             <h6>Actualizado a: <span className="badge bg-secondary">{actualizadoA}</span></h6> */}
             

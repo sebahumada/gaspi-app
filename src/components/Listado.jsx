@@ -78,12 +78,6 @@ export const Listado = () => {
 
     return (
         <div>
-                  
-            
-
-            <hr />
-            
-
 
             <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
             <div className="card-header">

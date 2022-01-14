@@ -92,12 +92,7 @@ export const Ingresar = () => {
         
 
     return (
-        <div>
-            
-          
-            
-
-            <hr />
+        <div>  
             <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
             <div className="card-header"><h4>Ingresar leche</h4></div>
             

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export const Botonera = () => {
 
-    const clase = 'btn btn-info m-1 btn-sm';  
+    const clase = 'btn btn-info me-1 btn-sm';  
     
 
 

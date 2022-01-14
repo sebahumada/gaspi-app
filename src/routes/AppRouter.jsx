@@ -54,39 +54,46 @@ export const AppRouter = () => {
     }
     return (
         <>
-        <div className='bg-white'>
-            <div className='clearfix' style={sticky}>
-                <img src={bebe} alt="bebe" className='img-responsive float-start' style={imgBebe}/>
-                <span className='h1 float-center' style={letra}>Lechit.app</span>
-                
-                {
-                    (isLogged)?
-                    (
-                        <>
-                            <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}>Salir</button>
+            <div className='bg-white'>
+                <div className='clearfix mt-2' style={sticky}>
+                    <img src={bebe} alt="bebe" className='img-responsive float-start' style={imgBebe}/>
+                    <span className='h1 float-center' style={letra}>Lechit.app</span>
+                    
+                    {
+                        (isLogged)?
+                        (
+                            <>
+                                <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}>Salir</button>
+                                
                             
-                        
-                        </>
-                        
+                            </>
+                            
 
-                    ):
-                    (
-                        <></>
-                    )
-                }
-            <h5><span className="badge bg-danger float-start" >{fecha}</span></h5>
-            </div>
+                        ):
+                        (
+                            <></>
+                        )
+                    }
 
-            
-            <br />
-            <Botonera />
-            <br/>
-            <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/listado" element={<Listado />} />      
-                    <Route path="/ingresar" element={<Ingresar />} />
-                    <Route path="/estadisticas" element={<Estadisticas />} />
+                    <h5>
+                        <span className="badge bg-danger float-start" >{fecha}</span>
+                    </h5>
+
+                <br />
+                <Botonera />
+                <br/>
+                
+                <br />
+
+                </div>
+                <hr />
+                
+                <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/listado" element={<Listado />} />      
+                        <Route path="/ingresar" element={<Ingresar />} />
+                        <Route path="/estadisticas" element={<Estadisticas />} />
                 </Routes>
 
 

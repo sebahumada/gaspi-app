@@ -104,10 +104,7 @@ export const Estadisticas = () => {
 
     return (
         <>
-        
-        
             
-            <hr />
 
             <div className='card border-dark mb-3 animate__animated animate__fadeIn'>
 
