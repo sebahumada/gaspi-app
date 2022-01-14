@@ -47,12 +47,15 @@ export const AppRouter = () => {
 
     const sticky = {
         position: 'sticky',
-        top: 0
+        top: 0,
+        zIndex: 1,
+        backgroundColor: '#ffffff',
+        borderColor: '#ffffff'
     }
     return (
         <>
-        <div className='bg-white' style={sticky}>
-            <div className='clearfix'>
+        <div className='bg-white'>
+            <div className='clearfix' style={sticky}>
                 <img src={bebe} alt="bebe" className='img-responsive float-start' style={imgBebe}/>
                 <span className='h1 float-center' style={letra}>Lechit.app</span>
                 
