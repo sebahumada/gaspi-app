@@ -84,7 +84,10 @@ export const AppRouter = () => {
                 
 
                 </div>
-                <Botonera />
+
+                {
+                    (isLogged)?<Botonera />:<></>
+                }
                 <br /><br />
                 </div>
                 
