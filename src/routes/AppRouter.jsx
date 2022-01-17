@@ -30,7 +30,7 @@ export const AppRouter = () => {
 
     const handleSalir = async ()=>{
         await auth.signOut();
-
+        setisLogged(false);
         console.log('saliendo...');
         localStorage.clear();
         onAuthStateChanged(auth, user => console.log('usuario? ',user));
