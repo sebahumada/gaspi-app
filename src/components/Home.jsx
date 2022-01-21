@@ -98,7 +98,7 @@ export const Home = () => {
                 (
                     <>
                     <div className="card border-dark mb-3 animate__animated animate__fadeIn">
-                    <div className="card-header"><h4>Resumen</h4> <h6 className='card-title float-start'>Actualizado: <span className="badge rounded-pill bg-dark text-light">{actualizadoA}</span></h6></div>
+                    <div className="card-header"><h4>Resumen</h4> <h6>Actualizado: <span className="badge rounded-pill bg-info text-light">{actualizadoA}</span></h6></div>
                     <div className="card-body">
                     <div className='clearfix'>
                         

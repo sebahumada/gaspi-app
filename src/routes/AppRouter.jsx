@@ -14,7 +14,7 @@ import { Botonera } from '../components/Botonera.jsx';
 
 export const AppRouter = () => {
 
-    const [isLogged, setisLogged] = useState(true);
+    const [isLogged, setisLogged] = useState(false);
 
     onAuthStateChanged(auth, user => {
 
@@ -33,7 +33,7 @@ export const AppRouter = () => {
         setisLogged(false);
         console.log('saliendo...');
         localStorage.clear();
-        onAuthStateChanged(auth, user => console.log('usuario? ',user));
+        //onAuthStateChanged(auth, user => console.log('usuario? ',user));
 
     }
 
