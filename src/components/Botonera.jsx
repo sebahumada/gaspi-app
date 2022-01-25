@@ -9,10 +9,10 @@ export const Botonera = () => {
 
     return (
         <>
-            <NavLink  to="/" className={clase}>Home</NavLink>
-            <NavLink  to="/ingresar" className={clase}>Ingresar</NavLink>
-            <NavLink to="/listado" className={clase}>Listado</NavLink>
-            <NavLink to="/estadisticas" className={clase}>Gráfico</NavLink>
+            <NavLink  to="/" className={clase}><i class="fas fa-home"></i></NavLink>
+            <NavLink  to="/ingresar" className={clase}><i class="fas fa-pen"></i> Ingresa</NavLink>
+            <NavLink to="/listado" className={clase}><i class="fas fa-list-ol"></i> Listado</NavLink>
+            <NavLink to="/estadisticas" className={clase}><i class="fas fa-chart-area"></i> Gráfico</NavLink>
         </>
     )
 }

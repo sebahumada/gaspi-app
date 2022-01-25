@@ -65,7 +65,7 @@ export const AppRouter = () => {
                         (isLogged)?
                         (
                             <>
-                                <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}>Salir</button>
+                                <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}><i class="fas fa-sign-out-alt"></i></button>
                                 
                             
                             </>

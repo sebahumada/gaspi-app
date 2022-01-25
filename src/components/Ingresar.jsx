@@ -127,7 +127,7 @@ export const Ingresar = () => {
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Leche nocturna</label>
                       </div> */}
 
-                        <button type="submit" className="btn btn-primary mt-2">Ingresar Leche</button>
+                        <button type="submit" className="btn btn-success mt-2 "><i class="fas fa-save"></i> Guardar</button>
                     </form>
 
 
