@@ -12,7 +12,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 export const Ingresar = () => {
 
-
+  
 
   onAuthStateChanged(auth, user => {
 
@@ -27,7 +27,7 @@ export const Ingresar = () => {
     const lecheCollectionRef = collection(db,'gaspiLeche');
 
     const[formValues, handleInputChange] = useForm({
-        cantidad:80,
+        cantidad:90,
         fecha:dayjs().format('YYYY-MM-DD'),
         hora:dayjs().format('HH:mm'),
         tipo:'Relleno',
