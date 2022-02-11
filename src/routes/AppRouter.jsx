@@ -10,6 +10,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useDateTime } from './../hooks/useDateTime';
 import bebe from '../assets/baby.png';
 import { Botonera } from '../components/Botonera.jsx';
+import { Editar } from '../components/Editar.jsx';
 
 
 export const AppRouter = () => {
@@ -65,7 +66,7 @@ export const AppRouter = () => {
                         (isLogged)?
                         (
                             <>
-                                <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}><i class="fas fa-sign-out-alt"></i></button>
+                                <button type='button' className='btn btn-dark btn-sm float-end' onClick={handleSalir}><i className="fas fa-sign-out-alt"></i></button>
                                 
                             
                             </>
@@ -98,6 +99,7 @@ export const AppRouter = () => {
                             <Route path="/login" element={<Login />} />
                             <Route path="/listado" element={<Listado />} />      
                             <Route path="/ingresar" element={<Ingresar />} />
+                            <Route path="/editar/:id" element={<Editar />} />
                             <Route path="/estadisticas" element={<Estadisticas />} />
                     </Routes>
 

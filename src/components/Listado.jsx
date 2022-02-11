@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore';
 import { orderBy } from 'lodash';
 import { auth, db } from './../database/firebase-config';
 import { useForm } from './../hooks/useForm';
@@ -8,6 +8,7 @@ import { Tabla } from './Tabla';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { onAuthStateChanged } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 
 export const Listado = () => {
@@ -22,11 +23,48 @@ export const Listado = () => {
 
     });
 
+
+    const handleDelete = async(id)=>{
+
+        try {
+          
+
+            Swal.fire({
+                title: 'Está seguro?',
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: 'Si',
+                cancelButtonText:'Cancelar'
+                
+              }).then((result) => {
+                
+                if (result.isConfirmed) {
+
+                    const userDoc = doc(db,'gaspiLeche', id);
+                    deleteDoc(userDoc).then( ()=>{
+                        Swal.fire('Registro eliminado');
+                        setCargar(true);
+                    }
+
+                    );
+                } 
+              });
+
+
+            
+
+
+
+          
+        } catch (error) {
+          
+        }
+      }
     
         const [leche, setLeche] = useState([]);
         
         const [cargando, setCargando] = useState(false);
-        
+        const [cargar, setCargar] = useState(true);
 
         const[formValues, handleInputChange] = useForm({
             
@@ -65,10 +103,13 @@ export const Listado = () => {
 
             };
             
+            if(cargar){
+                getLeche();
+                setCargar(false);
 
-            getLeche();
+            }
 
-        }, [fechaQ]);
+        }, [fechaQ, cargar]);
 
         const navigate = useNavigate();
 
@@ -95,7 +136,7 @@ export const Listado = () => {
 
                     (leche && leche.length>0)?
                         (
-                            <Tabla datos={leche} fecha={fechaQ}/>
+                            <Tabla datos={leche} fecha={fechaQ} handleDelete={handleDelete} />
                         ):
                         (cargando)?
                         (

@@ -24,10 +24,12 @@ export const Ingresar = () => {
 
 
 
+
+
     const lecheCollectionRef = collection(db,'gaspiLeche');
 
     const[formValues, handleInputChange] = useForm({
-        cantidad:90,
+        cantidad:110,
         fecha:dayjs().format('YYYY-MM-DD'),
         hora:dayjs().format('HH:mm'),
         tipo:'Relleno',
@@ -41,6 +43,7 @@ export const Ingresar = () => {
       const semana=dayjs().add(-7,'day').format('YYYY-MM-DD')
 
 
+      
      
 
       const handleIngresar = async(e)=>{
@@ -127,7 +130,7 @@ export const Ingresar = () => {
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Leche nocturna</label>
                       </div> */}
 
-                        <button type="submit" className="btn btn-success mt-2 "><i class="fas fa-save"></i> Guardar</button>
+                        <button type="submit" className="btn btn-success mt-2 "><i className="fas fa-save"></i> Ingresar</button>
                     </form>
 
 

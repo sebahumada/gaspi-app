@@ -107,7 +107,7 @@ export const Home = () => {
                             (minutos<20)?
 
                             (
-                                <button className='btn btn-light btn-sm' onClick={handleActualizar}><i class="fas fa-sync-alt"></i></button>
+                                <button className='btn btn-light btn-sm' onClick={handleActualizar}><i className="fas fa-sync-alt"></i></button>
                             ):(
                                 <></>
                                 )
@@ -116,7 +116,7 @@ export const Home = () => {
                         
                     <div className='card-group'>
                             <div className="card text-white bg-danger mt-4">
-                            <div className="card-header fw-bold"><i class="far fa-clock"></i> Próxima Leche</div>
+                            <div className="card-header fw-bold"><i className="far fa-clock"></i> Próxima Leche</div>
                             <div className="card-body">
                                 
                                 {
@@ -133,7 +133,7 @@ export const Home = () => {
                             </div>
 
                             <div className="card text-white bg-primary mt-4">
-                            <div className="card-header fw-bold"><i class="fas fa-history"></i> Última Leche</div>
+                            <div className="card-header fw-bold"><i className="fas fa-history"></i> Última Leche</div>
                             <div className="card-body">
                                 
                                 <p className="card-text">Fecha: {fechaFormat}</p>
