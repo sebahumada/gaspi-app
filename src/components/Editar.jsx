@@ -4,18 +4,19 @@ import { doc, getDoc } from 'firebase/firestore';
 
 
 import { auth, db } from '../database/firebase-config';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect,useState } from 'react';
 import { FormularioEdit } from './FormularioEdit.jsx';
+import { useStoreState } from 'easy-peasy';
 
 
 
 export const Editar = () => {
 
-  const {id} = useParams();
-
   
+
+  const id = useStoreState((state) => state.idDoc);
 
   onAuthStateChanged(auth, user => {
 

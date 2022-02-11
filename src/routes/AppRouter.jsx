@@ -110,7 +110,7 @@ export const AppRouter = () => {
                             <Route path="/login" element={<Login />} />
                             <Route path="/listado" element={<Listado />} />      
                             <Route path="/ingresar" element={<Ingresar />} />
-                            <Route path="/editar/:id" element={<Editar />} />
+                            <Route path="/editar" element={<Editar />} />
                             <Route path="/estadisticas" element={<Estadisticas />} />
                     </Routes>
 
@@ -122,7 +122,7 @@ export const AppRouter = () => {
                     (isLogged)?
 
                     (
-                        <div className="d-flex justify-content-center mb-2">
+                        <div className="d-flex justify-content-end mb-2">
                             <div className="p-1" style={divLogo}>
                             Made with
                             <i className="fab fa-react px-2" style={colorLogo}></i>React

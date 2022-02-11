@@ -3,7 +3,7 @@ import { useForm } from '../hooks/useForm';
 import  Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { doc, updateDoc } from 'firebase/firestore';
-import { db } from '../database/firebase-config.js';
+import { db } from '../database/firebase-config';
 
 export const FormularioEdit = ({texto,id,fech, cant, hor, tip}) => {
 

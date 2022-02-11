@@ -1,19 +1,33 @@
 
 
 import dayjs from 'dayjs'
+import { useStoreActions } from 'easy-peasy';
+
+
 import { sumBy } from 'lodash';
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export const Tabla = ({datos=[], fecha, handleDelete}) => {
 
+
+    const navigate = useNavigate();
+    const setId = useStoreActions((actions) => actions.setId);
+
+    const handleEditar = (id)=>{
+        console.log(id)
+        setId(id);
+        navigate('../editar', { replace: true });
+
+    }
+
     fecha = dayjs(fecha).format('DD-MM-YYYY');
     
     const cantidad = sumBy(datos,'cantidad');
-    const colorEdit={
-        color:'##1266f1'
+    const colorEdit={        
+        color:'#1266f1'
     }
 
     const colorDel={
@@ -29,8 +43,8 @@ export const Tabla = ({datos=[], fecha, handleDelete}) => {
             <div className='table-responsive'>
 
             
-                <table className="table table-light table-striped text-center">
-                        <thead className='table-dark'>
+                <table className="table table-ligth table-striped text-center">
+                        <thead className='table-primary'>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Tipo</th>
@@ -58,9 +72,9 @@ export const Tabla = ({datos=[], fecha, handleDelete}) => {
                                     <td>{cantidad} ml</td>                                
                                     <td>{hora}</td>
                                     <td>
-                                        <Link to={`/editar/${id}`}>
-                                            <i className="fas fa-edit" style={colorEdit}></i>                                    
-                                        </Link>
+                                        
+                                            <i onClick={()=>handleEditar(id)} className="fas fa-edit" style={colorEdit}></i>                                    
+                                        
                                     </td>
                                     <td>
                                         <i onClick={()=>handleDelete(id)}  className="fas fa-trash-alt" style={colorDel}></i>
