@@ -50,10 +50,6 @@ export const AppRouter = () => {
         color: '#61DAFB'
     }
 
-    const colorHearth={
-        color: '#f93154'
-    }
-
     const sticky = {
         position: 'sticky',
         top: 0,
@@ -121,13 +117,23 @@ export const AppRouter = () => {
                 
 
                 
-                <div className="d-flex justify-content-center mb-2">
-                <div className="p-1" style={divLogo}>
-                Powered by
-                <i class="fab fa-react px-2" style={colorLogo}></i>React
-                </div>
+                {
+                    (isLogged)?
+
+                    (
+                        <div className="d-flex justify-content-center mb-2">
+                            <div className="p-1" style={divLogo}>
+                            Powered by
+                            <i className="fab fa-react px-2" style={colorLogo}></i>React
+                        </div>
 
                 </div>
+                    ):
+                    (
+                        <></>
+                    )
+                }
+                
 
             </div>
         </>

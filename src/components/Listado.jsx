@@ -124,7 +124,10 @@ export const Listado = () => {
             <div className="card-header">
                 <div className='clearfix'>
                     <span className='h4 float-start'>Listado Fecha </span>    
-                    <input type="date" name="fechaQ" value={fechaQ} max={hoy} className="form-control float-end" onChange={handleInputChange} />
+                    <input type="date" name="fechaQ" value={fechaQ} max={hoy} className="form-control float-end" onChange={(e)=>{
+                        handleInputChange(e);
+                        setCargar(true);
+                        }} />
                 </div>
                 
                 

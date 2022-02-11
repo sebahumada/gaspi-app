@@ -33,7 +33,8 @@ export const Tabla = ({datos=[], fecha, handleDelete}) => {
                             <th scope="col">Tipo</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Hora</th>
-                            <th scope="col">Opt</th>
+                            <th scope="col"><i className="fas fa-edit"></i></th>
+                            <th scope="col"><i className="fas fa-trash-alt"></i></th>
                             
                             
                         
@@ -55,8 +56,10 @@ export const Tabla = ({datos=[], fecha, handleDelete}) => {
                                 <td>{hora}</td>
                                 <td>
                                     <Link to={`/editar/${id}`}>
-                                        <i className="fas fa-edit me-3" style={colorEdit}></i>                                    
+                                        <i className="fas fa-edit" style={colorEdit}></i>                                    
                                     </Link>
+                                </td>
+                                <td>
                                     <i onClick={()=>handleDelete(id)}  className="fas fa-trash-alt" style={colorDel}></i>
                                     
                                 </td>
