@@ -46,12 +46,26 @@ export const AppRouter = () => {
         maxWidth:'20%'
     }
 
+    const colorLogo={
+        color: '#61DAFB'
+    }
+
+    const colorHearth={
+        color: '#f93154'
+    }
+
     const sticky = {
         position: 'sticky',
         top: 0,
         zIndex: 1,
         backgroundColor: '#ffffff',
         borderColor: '#ffffff'
+    }
+
+    const divLogo={
+        display: 'inline-block',
+        backgroundColor:'#20232A',
+        color: '#61DAFB'
     }
     return (
         <>
@@ -106,6 +120,14 @@ export const AppRouter = () => {
                 </div>
                 
 
+                
+                <div className="d-flex justify-content-center mb-2">
+                <div className="p-1" style={divLogo}>
+                Powered by
+                <i class="fab fa-react px-2" style={colorLogo}></i>React
+                </div>
+
+                </div>
 
             </div>
         </>
