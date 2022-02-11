@@ -17,7 +17,7 @@ export const Tabla = ({datos=[], fecha, handleDelete}) => {
     const setId = useStoreActions((actions) => actions.setId);
 
     const handleEditar = (id)=>{
-        console.log(id)
+        
         setId(id);
         navigate('../editar', { replace: true });
 
