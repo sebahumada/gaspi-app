@@ -26,53 +26,57 @@ export const Tabla = ({datos=[], fecha, handleDelete}) => {
             
             <h2>Registros fecha <span className="badge bg-primary">{fecha}</span></h2>
             <h3>Total <span className="badge bg-success">{cantidad} ml</span></h3>
-            <table className="table table-light table-striped text-center">
-                    <thead className='table-dark'>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Hora</th>
-                            <th scope="col"><i className="fas fa-edit"></i></th>
-                            <th scope="col"><i className="fas fa-trash-alt"></i></th>
-                            
-                            
-                        
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div className='table-responsive'>
 
-                    <tr>
-                        
-                    </tr>
-
-                    {
-                        
-                        datos.map(({tipo, cantidad, fecha,hora, id}, i)=> (
-                            <tr key={id}>
-                                <th>{i+1}</th>
-                                <td>{tipo}</td>
-                                <td>{cantidad} ml</td>                                
-                                <td>{hora}</td>
-                                <td>
-                                    <Link to={`/editar/${id}`}>
-                                        <i className="fas fa-edit" style={colorEdit}></i>                                    
-                                    </Link>
-                                </td>
-                                <td>
-                                    <i onClick={()=>handleDelete(id)}  className="fas fa-trash-alt" style={colorDel}></i>
-                                    
-                                </td>
+            
+                <table className="table table-light table-striped text-center">
+                        <thead className='table-dark'>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Hora</th>
+                                <th scope="col"><i className="fas fa-edit"></i></th>
+                                <th scope="col"><i className="fas fa-trash-alt"></i></th>
                                 
+                                
+                            
                             </tr>
-                        ))
+                        </thead>
+                        <tbody>
 
-                        
-                        
-                    }
-                        
-                    </tbody>
-                </table>
+                        <tr>
+                            
+                        </tr>
+
+                        {
+                            
+                            datos.map(({tipo, cantidad, fecha,hora, id}, i)=> (
+                                <tr key={id}>
+                                    <th>{i+1}</th>
+                                    <td>{tipo}</td>
+                                    <td>{cantidad} ml</td>                                
+                                    <td>{hora}</td>
+                                    <td>
+                                        <Link to={`/editar/${id}`}>
+                                            <i className="fas fa-edit" style={colorEdit}></i>                                    
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        <i onClick={()=>handleDelete(id)}  className="fas fa-trash-alt" style={colorDel}></i>
+                                        
+                                    </td>
+                                    
+                                </tr>
+                            ))
+
+                            
+                            
+                        }
+                            
+                        </tbody>
+                    </table>
+                </div>
            
         </>
     )

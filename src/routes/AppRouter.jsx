@@ -60,6 +60,7 @@ export const AppRouter = () => {
 
     const divLogo={
         display: 'inline-block',
+        fontSize: '12px',
         backgroundColor:'#20232A',
         color: '#61DAFB'
     }
@@ -123,7 +124,7 @@ export const AppRouter = () => {
                     (
                         <div className="d-flex justify-content-center mb-2">
                             <div className="p-1" style={divLogo}>
-                            Powered by
+                            Made with
                             <i className="fab fa-react px-2" style={colorLogo}></i>React
                         </div>
 
