@@ -14,7 +14,7 @@ export const FormularioEdit = ({texto,id,fech, cant, hor, tip}) => {
 
     const[formValues, handleInputChange] = useForm({
         fecha: fech, 
-        cantidad: cant, 
+        cantidad: Number(cant), 
         hora: hor, 
         tipo: tip
     });
@@ -28,10 +28,12 @@ export const FormularioEdit = ({texto,id,fech, cant, hor, tip}) => {
 
           const docRef = doc(db,'gaspiLeche',id);
           await updateDoc(docRef,{
-            fecha, 
-            cantidad, 
-            hora, 
-            tipo});
+            cantidad: Number(cantidad),
+            fecha,
+            hora,      
+            tipo,
+            nocturno: false
+          });
 
             Swal.fire({
               title: 'Registro editado correctamente!',

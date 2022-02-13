@@ -43,7 +43,7 @@ export const Tabla = ({datos=[], fecha, handleDelete}) => {
             <div className='table-responsive'>
 
             
-                <table className="table table-ligth table-striped text-center">
+                <table className="table table-ligth table-striped text-center table-hover">
                         <thead className='table-primary'>
                             <tr>
                                 <th scope="col">#</th>
