@@ -118,22 +118,15 @@ export const AppRouter = () => {
                 
 
                 
-                {
-                    (isLogged)?
-
-                    (
+                
                         <div className="d-flex justify-content-end mb-2">
                             <div className="p-1" style={divLogo}>
                             Made with
                             <i className="fab fa-react px-2" style={colorLogo}></i>React
                         </div>
 
-                </div>
-                    ):
-                    (
-                        <></>
-                    )
-                }
+                        </div>
+                    
                 
 
             </div>

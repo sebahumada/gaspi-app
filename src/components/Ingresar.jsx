@@ -29,7 +29,7 @@ export const Ingresar = () => {
     const lecheCollectionRef = collection(db,'gaspiLeche');
 
     const[formValues, handleInputChange] = useForm({
-        cantidad:110,
+        cantidad:120,
         fecha:dayjs().format('YYYY-MM-DD'),
         hora:dayjs().format('HH:mm'),
         tipo:'Relleno',

@@ -32,7 +32,7 @@ export const Login = () => {
 
     return (
         <div>
-            <button className='btn btn-primary' onClick={signInWithGoogle}>Ingresar con Google</button>
+            <button className='btn btn-primary' onClick={signInWithGoogle}><i class="fab fa-google"></i> Ingresar con Google</button>
         </div>
     )
 }
