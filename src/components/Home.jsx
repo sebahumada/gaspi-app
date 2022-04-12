@@ -68,7 +68,7 @@ export const Home = () => {
         //const {fecha, hora, cantidad, tipo, nocturno} = leche;              
         const {fecha, hora, cantidad, tipo} = leche;              
         
-        const minutosProxima = 200;//!nocturno? 140: 180;
+        const minutosProxima = 210;//!nocturno? 140: 180;
 
         
         

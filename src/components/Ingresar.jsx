@@ -34,10 +34,11 @@ export const Ingresar = () => {
         hora:dayjs().format('HH:mm'),
         tipo:'Relleno',
         nocturno: false
+      
       });
 
 
-      const {fecha, cantidad, hora, tipo, nocturno} = formValues;
+      const {fecha, cantidad, hora, tipo, nocturno } = formValues;
 
       const hoy=dayjs().format('YYYY-MM-DD');
       const semana=dayjs().add(-7,'day').format('YYYY-MM-DD')
@@ -52,6 +53,8 @@ export const Ingresar = () => {
         try {
             
             e.preventDefault();
+
+
         
             const nuevoRegistro = {
               cantidad: Number(cantidad),
@@ -124,6 +127,7 @@ export const Ingresar = () => {
                         <input type="time" name="hora" id="flHora" value={hora} className="form-control" onChange={handleInputChange}></input>
                         <label htmlFor="flHora">Ingresa Hora</label>
                       </div>
+                      
 
                       {/* <div className="form-check form-switch">
                         <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked={nocturno} name="nocturno" onChange={handleInputChange} />
